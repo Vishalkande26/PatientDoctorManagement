@@ -1,0 +1,16 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 004-add-doctor-soft-delete
+      author: vishal
+
+      changes:
+        - addColumn:
+            tableName: doctors
+            columns:
+              - column:
+                  name: deleted
+                  type: BIT
+                  defaultValueBoolean: false
+                  constraints:
+                    nullable: false

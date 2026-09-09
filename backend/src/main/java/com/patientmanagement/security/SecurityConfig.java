@@ -67,15 +67,19 @@ public class SecurityConfig {
             .csrf(csrf ->
                     csrf.disable()
             )
+
             .cors(cors -> {})
+
             .sessionManagement(session ->
                     session.sessionCreationPolicy(
                             SessionCreationPolicy.STATELESS
                     )
             )
+
             .authenticationProvider(
                     authenticationProvider
             )
+
             .authorizeHttpRequests(auth -> auth
 
                 .requestMatchers(
@@ -93,10 +97,12 @@ public class SecurityConfig {
                         "/api/auth/**"
                 ).permitAll()
 
+                // USER CRUD
                 .requestMatchers(
                         "/api/users/**"
                 ).hasRole("ADMIN")
 
+                // DOCTOR
                 .requestMatchers(
                         HttpMethod.GET,
                         "/api/doctors/**"
@@ -121,6 +127,7 @@ public class SecurityConfig {
                         "/api/doctors/**"
                 ).hasRole("ADMIN")
 
+                // PATIENT
                 .requestMatchers(
                         HttpMethod.GET,
                         "/api/patients/**"
@@ -147,6 +154,7 @@ public class SecurityConfig {
                         "/api/patients/**"
                 ).hasRole("ADMIN")
 
+                // APPOINTMENT
                 .requestMatchers(
                         HttpMethod.GET,
                         "/api/appointments/**"
@@ -167,14 +175,17 @@ public class SecurityConfig {
                 .requestMatchers(
                         HttpMethod.PUT,
                         "/api/appointments/**"
-                ).hasRole("DOCTOR")
+                ).hasAnyRole(
+                        "DOCTOR",
+                        "ADMIN"
+                )
 
                 .requestMatchers(
                         HttpMethod.DELETE,
                         "/api/appointments/**"
                 ).hasRole("ADMIN")
 
-                // Many-to-Many Doctor-Patient APIs
+                // DOCTOR-PATIENT MANY TO MANY
                 .requestMatchers(
                         HttpMethod.POST,
                         "/api/doctor-patient/**"
@@ -197,6 +208,7 @@ public class SecurityConfig {
                 .anyRequest()
                 .authenticated()
             )
+
             .addFilterBefore(
                     jwtAuthenticationFilter,
                     UsernamePasswordAuthenticationFilter.class

@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -59,6 +60,14 @@ public class Doctor {
     )
     private int experience;
 
+    /*
+     * Soft delete flag.
+     *
+     * false = active doctor
+     * true  = deleted doctor
+     */
+    @Column(nullable = false)
+    private boolean deleted = false;
 
     @ManyToMany
     @JoinTable(
@@ -69,8 +78,18 @@ public class Doctor {
     @JsonIgnore
     private Set<Patient> patients = new HashSet<>();
 
+
+    // ==============================
+    // CONSTRUCTOR
+    // ==============================
+
     public Doctor() {
     }
+
+
+    // ==============================
+    // GETTERS AND SETTERS
+    // ==============================
 
     public Long getId() {
         return id;
@@ -80,6 +99,7 @@ public class Doctor {
         this.id = id;
     }
 
+
     public String getName() {
         return name;
     }
@@ -87,6 +107,7 @@ public class Doctor {
     public void setName(String name) {
         this.name = name;
     }
+
 
     public String getSpecialization() {
         return specialization;
@@ -96,6 +117,7 @@ public class Doctor {
         this.specialization = specialization;
     }
 
+
     public String getPhone() {
         return phone;
     }
@@ -103,6 +125,7 @@ public class Doctor {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
 
     public String getEmail() {
         return email;
@@ -112,6 +135,7 @@ public class Doctor {
         this.email = email;
     }
 
+
     public int getExperience() {
         return experience;
     }
@@ -119,6 +143,16 @@ public class Doctor {
     public void setExperience(int experience) {
         this.experience = experience;
     }
+
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
+
 
     public Set<Patient> getPatients() {
         return patients;

@@ -1,4 +1,3 @@
-
 package com.patientmanagement.service;
 
 import java.util.List;
@@ -14,51 +13,49 @@ public class DoctorService {
 
     private final DoctorRepository doctorRepository;
 
-
-    public DoctorService(
-            DoctorRepository doctorRepository) {
-
-        this.doctorRepository =
-                doctorRepository;
+    public DoctorService(DoctorRepository doctorRepository) {
+        this.doctorRepository = doctorRepository;
     }
 
+    // ==============================
+    // CREATE DOCTOR
+    // ==============================
 
-    
+    public Doctor createDoctor(Doctor doctor) {
 
-    public Doctor createDoctor(
-            Doctor doctor) {
+        // New doctors are active by default
+        doctor.setDeleted(false);
 
-        return doctorRepository.save(
-                doctor
-        );
+        return doctorRepository.save(doctor);
     }
 
-
-    
+    // ==============================
+    // GET ALL ACTIVE DOCTORS
+    // ==============================
 
     public List<Doctor> getAllDoctors() {
 
-        return doctorRepository.findAll();
+        return doctorRepository.findByDeletedFalse();
     }
 
+    // ==============================
+    // GET ACTIVE DOCTOR BY ID
+    // ==============================
 
-    
-
-    public Doctor getDoctorById(
-            Long id) {
+    public Doctor getDoctorById(Long id) {
 
         return doctorRepository
-                .findById(id)
+                .findByIdAndDeletedFalse(id)
                 .orElseThrow(() ->
                         new ResourceNotFoundException(
-                                "Doctor not found with id: "
-                                        + id
+                                "Doctor not found with id: " + id
                         )
                 );
     }
 
-
-    
+    // ==============================
+    // UPDATE DOCTOR
+    // ==============================
 
     public Doctor updateDoctor(
             Long id,
@@ -66,64 +63,56 @@ public class DoctorService {
 
         Doctor existingDoctor =
                 doctorRepository
-                        .findById(id)
+                        .findByIdAndDeletedFalse(id)
                         .orElseThrow(() ->
                                 new ResourceNotFoundException(
-                                        "Doctor not found with id: "
-                                                + id
+                                        "Doctor not found with id: " + id
                                 )
                         );
-
 
         existingDoctor.setName(
                 doctor.getName()
         );
 
-
         existingDoctor.setSpecialization(
                 doctor.getSpecialization()
         );
-
 
         existingDoctor.setPhone(
                 doctor.getPhone()
         );
 
-
         existingDoctor.setEmail(
                 doctor.getEmail()
         );
-
 
         existingDoctor.setExperience(
                 doctor.getExperience()
         );
 
-
-        return doctorRepository.save(
-                existingDoctor
-        );
+        return doctorRepository.save(existingDoctor);
     }
 
+    // ==============================
+    // SOFT DELETE DOCTOR
+    // ==============================
 
-    
-
-    public void deleteDoctor(
-            Long id) {
+    public void deleteDoctor(Long id) {
 
         Doctor existingDoctor =
                 doctorRepository
-                        .findById(id)
+                        .findByIdAndDeletedFalse(id)
                         .orElseThrow(() ->
                                 new ResourceNotFoundException(
-                                        "Doctor not found with id: "
-                                                + id
+                                        "Doctor not found with id: " + id
                                 )
                         );
 
+        // Soft delete:
+        // false = active
+        // true  = deleted
+        existingDoctor.setDeleted(true);
 
-        doctorRepository.delete(
-                existingDoctor
-        );
+        doctorRepository.save(existingDoctor);
     }
 }

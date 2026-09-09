@@ -296,4 +296,6 @@ databaseChangeLog:
         referencedColumnNames: id
         referencedTableName: patients
         validate: true
+- include:
+    file: db/changelog/changes/004-add-doctor-soft-delete.yaml        
 
