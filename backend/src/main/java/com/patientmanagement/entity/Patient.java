@@ -1,9 +1,15 @@
 package com.patientmanagement.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -47,6 +53,10 @@ public class Patient {
 
     @NotBlank(message = "Address is required")
     private String address;
+
+    @ManyToMany(mappedBy = "patients")
+    @JsonIgnore
+    private Set<Doctor> doctors = new HashSet<>();
 
     public Patient() {
     }
@@ -105,5 +115,13 @@ public class Patient {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Set<Doctor> getDoctors() {
+        return doctors;
+    }
+
+    public void setDoctors(Set<Doctor> doctors) {
+        this.doctors = doctors;
     }
 }

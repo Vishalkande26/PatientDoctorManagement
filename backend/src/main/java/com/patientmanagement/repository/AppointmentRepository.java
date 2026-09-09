@@ -4,11 +4,12 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.patientmanagement.entity.Appointment;
 
-public interface AppointmentRepository
-        extends JpaRepository<Appointment, Long> {
+@Repository
+public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
 
     boolean existsByDoctor_IdAndAppointmentDateAndAppointmentTime(
             Long doctorId,
@@ -23,7 +24,7 @@ public interface AppointmentRepository
             Long id
     );
 
-    void deleteByPatient_Id(
-            Long patientId
-    );
+    void deleteByPatient_Id(Long patientId);
+
+    void deleteByDoctor_Id(Long doctorId);
 }

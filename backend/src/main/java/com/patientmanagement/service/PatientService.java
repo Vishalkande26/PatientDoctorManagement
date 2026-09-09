@@ -14,7 +14,9 @@ import com.patientmanagement.repository.PatientRepository;
 public class PatientService {
 
     private final PatientRepository patientRepository;
+
     private final AppointmentRepository appointmentRepository;
+
 
     public PatientService(
             PatientRepository patientRepository,
@@ -28,8 +30,6 @@ public class PatientService {
     }
 
 
-   
-
     public Patient createPatient(
             Patient patient) {
 
@@ -39,31 +39,24 @@ public class PatientService {
     }
 
 
-    
-
     public List<Patient> getAllPatients() {
 
         return patientRepository.findAll();
     }
 
 
-    
-
     public Patient getPatientById(
             Long id) {
 
         return patientRepository
                 .findById(id)
-                .orElseThrow(() ->
-                        new ResourceNotFoundException(
-                                "Patient not found with id: "
-                                        + id
+                .orElseThrow(
+                        () -> new ResourceNotFoundException(
+                                "Patient not found with id: " + id
                         )
                 );
     }
 
-
-    
 
     public Patient updatePatient(
             Long id,
@@ -72,12 +65,12 @@ public class PatientService {
         Patient existingPatient =
                 patientRepository
                         .findById(id)
-                        .orElseThrow(() ->
-                                new ResourceNotFoundException(
-                                        "Patient not found with id: "
-                                                + id
+                        .orElseThrow(
+                                () -> new ResourceNotFoundException(
+                                        "Patient not found with id: " + id
                                 )
                         );
+
 
         existingPatient.setName(
                 patient.getName()
@@ -103,34 +96,40 @@ public class PatientService {
                 patient.getAddress()
         );
 
+
         return patientRepository.save(
                 existingPatient
         );
     }
 
 
-    
     @Transactional
     public void deletePatient(
             Long id) {
 
-        Patient existingPatient =
+        Patient patient =
                 patientRepository
                         .findById(id)
-                        .orElseThrow(() ->
-                                new ResourceNotFoundException(
-                                        "Patient not found with id: "
-                                                + id
+                        .orElseThrow(
+                                () -> new ResourceNotFoundException(
+                                        "Patient not found with id: " + id
                                 )
                         );
 
-        
+
+        /*
+         * Delete appointments first.
+         * appointments.patient_id references patients.id.
+         */
         appointmentRepository
                 .deleteByPatient_Id(id);
 
-        
+
+        /*
+         * Now delete patient.
+         */
         patientRepository.delete(
-                existingPatient
+                patient
         );
     }
 }

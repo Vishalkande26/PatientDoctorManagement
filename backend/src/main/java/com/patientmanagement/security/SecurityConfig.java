@@ -64,48 +64,39 @@ public class SecurityConfig {
             throws Exception {
 
         http
-
-            // Disable CSRF because we are using JWT
             .csrf(csrf ->
                     csrf.disable()
             )
-
-            // Use CORS configuration from CorsConfig.java
             .cors(cors -> {})
-
-            // JWT authentication is stateless
             .sessionManagement(session ->
                     session.sessionCreationPolicy(
                             SessionCreationPolicy.STATELESS
                     )
             )
-
             .authenticationProvider(
                     authenticationProvider
             )
-
             .authorizeHttpRequests(auth -> auth
 
-                // Allow CORS preflight requests
                 .requestMatchers(
                         HttpMethod.OPTIONS,
                         "/**"
                 ).permitAll()
 
-                // Authentication APIs
+                .requestMatchers(
+                        "/swagger-ui/**",
+                        "/swagger-ui.html",
+                        "/v3/api-docs/**"
+                ).permitAll()
+
                 .requestMatchers(
                         "/api/auth/**"
                 ).permitAll()
 
-                // USER APIs - ADMIN only
                 .requestMatchers(
                         "/api/users/**"
                 ).hasRole("ADMIN")
 
-                // =========================
-                // DOCTOR APIs
-                // =========================
-
                 .requestMatchers(
                         HttpMethod.GET,
                         "/api/doctors/**"
@@ -129,10 +120,6 @@ public class SecurityConfig {
                         HttpMethod.DELETE,
                         "/api/doctors/**"
                 ).hasRole("ADMIN")
-
-                // =========================
-                // PATIENT APIs
-                // =========================
 
                 .requestMatchers(
                         HttpMethod.GET,
@@ -159,10 +146,6 @@ public class SecurityConfig {
                         HttpMethod.DELETE,
                         "/api/patients/**"
                 ).hasRole("ADMIN")
-
-                // =========================
-                // APPOINTMENT APIs
-                // =========================
 
                 .requestMatchers(
                         HttpMethod.GET,
@@ -191,12 +174,29 @@ public class SecurityConfig {
                         "/api/appointments/**"
                 ).hasRole("ADMIN")
 
-                // Everything else requires login
+                // Many-to-Many Doctor-Patient APIs
+                .requestMatchers(
+                        HttpMethod.POST,
+                        "/api/doctor-patient/**"
+                ).hasRole("ADMIN")
+
+                .requestMatchers(
+                        HttpMethod.DELETE,
+                        "/api/doctor-patient/**"
+                ).hasRole("ADMIN")
+
+                .requestMatchers(
+                        HttpMethod.GET,
+                        "/api/doctor-patient/**"
+                ).hasAnyRole(
+                        "PATIENT",
+                        "DOCTOR",
+                        "ADMIN"
+                )
+
                 .anyRequest()
                 .authenticated()
             )
-
-            // JWT filter
             .addFilterBefore(
                     jwtAuthenticationFilter,
                     UsernamePasswordAuthenticationFilter.class
