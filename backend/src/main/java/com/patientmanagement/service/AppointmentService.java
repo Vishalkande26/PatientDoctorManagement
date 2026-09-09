@@ -2,6 +2,8 @@ package com.patientmanagement.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.patientmanagement.dto.AppointmentRequestDTO;
@@ -17,6 +19,9 @@ import com.patientmanagement.repository.PatientRepository;
 
 @Service
 public class AppointmentService {
+
+    private static final Logger logger =
+            LoggerFactory.getLogger(AppointmentService.class);
 
     private final AppointmentRepository appointmentRepository;
     private final PatientRepository patientRepository;
@@ -37,11 +42,18 @@ public class AppointmentService {
                 doctorRepository;
     }
 
-
-    
+    // ==============================
+    // CREATE APPOINTMENT
+    // ==============================
 
     public AppointmentResponseDTO createAppointment(
             AppointmentRequestDTO request) {
+
+        logger.info(
+                "Creating appointment for patient id: {} and doctor id: {}",
+                request.getPatientId(),
+                request.getDoctorId()
+        );
 
         boolean duplicate =
                 appointmentRepository
@@ -53,43 +65,54 @@ public class AppointmentService {
 
         if (duplicate) {
 
+            logger.warn(
+                    "Duplicate appointment found for doctor id: {} on date: {} at time: {}",
+                    request.getDoctorId(),
+                    request.getAppointmentDate(),
+                    request.getAppointmentTime()
+            );
+
             throw new ConflictException(
                     "Appointment already exists for this doctor, date and time."
             );
         }
-
-
-        
 
         Patient patient =
                 patientRepository
                         .findById(
                                 request.getPatientId()
                         )
-                        .orElseThrow(() ->
-                                new ResourceNotFoundException(
-                                        "Patient not found with id: "
-                                                + request.getPatientId()
-                                )
-                        );
+                        .orElseThrow(() -> {
 
+                            logger.warn(
+                                    "Patient not found with id: {}",
+                                    request.getPatientId()
+                            );
 
-        
+                            return new ResourceNotFoundException(
+                                    "Patient not found with id: "
+                                            + request.getPatientId()
+                            );
+                        });
 
         Doctor doctor =
                 doctorRepository
                         .findById(
                                 request.getDoctorId()
                         )
-                        .orElseThrow(() ->
-                                new ResourceNotFoundException(
-                                        "Doctor not found with id: "
-                                                + request.getDoctorId()
-                                )
-                        );
+                        .orElseThrow(() -> {
 
+                            logger.warn(
+                                    "Doctor not found with id: {}",
+                                    request.getDoctorId()
+                            );
 
-       
+                            return new ResourceNotFoundException(
+                                    "Doctor not found with id: "
+                                            + request.getDoctorId()
+                            );
+                        });
+
         Appointment appointment =
                 new Appointment();
 
@@ -117,73 +140,108 @@ public class AppointmentService {
                 request.getStatus()
         );
 
-
         Appointment savedAppointment =
                 appointmentRepository.save(
                         appointment
                 );
 
+        logger.info(
+                "Appointment created successfully with id: {}",
+                savedAppointment.getId()
+        );
 
         return convertToResponse(
                 savedAppointment
         );
     }
 
-
-   
+    // ==============================
+    // GET ALL APPOINTMENTS
+    // ==============================
 
     public List<AppointmentResponseDTO>
     getAllAppointments() {
 
-        return appointmentRepository
-                .findAll()
-                .stream()
-                .map(this::convertToResponse)
-                .toList();
+        logger.info("Fetching all appointments");
+
+        List<AppointmentResponseDTO> appointments =
+                appointmentRepository
+                        .findAll()
+                        .stream()
+                        .map(this::convertToResponse)
+                        .toList();
+
+        logger.info(
+                "Found {} appointments",
+                appointments.size()
+        );
+
+        return appointments;
     }
 
-
-   
+    // ==============================
+    // GET APPOINTMENT BY ID
+    // ==============================
 
     public AppointmentResponseDTO
     getAppointmentById(
             Long id) {
 
+        logger.info(
+                "Fetching appointment with id: {}",
+                id
+        );
+
         Appointment appointment =
                 appointmentRepository
                         .findById(id)
-                        .orElseThrow(() ->
-                                new ResourceNotFoundException(
-                                        "Appointment not found with id: "
-                                                + id
-                                )
-                        );
+                        .orElseThrow(() -> {
+
+                            logger.warn(
+                                    "Appointment not found with id: {}",
+                                    id
+                            );
+
+                            return new ResourceNotFoundException(
+                                    "Appointment not found with id: "
+                                            + id
+                            );
+                        });
 
         return convertToResponse(
                 appointment
         );
     }
 
-
-   
+    // ==============================
+    // UPDATE APPOINTMENT
+    // ==============================
 
     public AppointmentResponseDTO
     updateAppointment(
             Long id,
             AppointmentRequestDTO request) {
 
+        logger.info(
+                "Updating appointment with id: {}",
+                id
+        );
+
         Appointment appointment =
                 appointmentRepository
                         .findById(id)
-                        .orElseThrow(() ->
-                                new ResourceNotFoundException(
-                                        "Appointment not found with id: "
-                                                + id
-                                )
-                        );
+                        .orElseThrow(() -> {
 
+                            logger.warn(
+                                    "Appointment not found for update with id: {}",
+                                    id
+                            );
 
-       
+                            return new ResourceNotFoundException(
+                                    "Appointment not found with id: "
+                                            + id
+                            );
+                        });
 
         boolean duplicate =
                 appointmentRepository
@@ -196,43 +254,51 @@ public class AppointmentService {
 
         if (duplicate) {
 
+            logger.warn(
+                    "Duplicate appointment found while updating appointment id: {}",
+                    id
+            );
+
             throw new ConflictException(
                     "Appointment already exists for this doctor, date and time."
             );
         }
-
-
-        
 
         Patient patient =
                 patientRepository
                         .findById(
                                 request.getPatientId()
                         )
-                        .orElseThrow(() ->
-                                new ResourceNotFoundException(
-                                        "Patient not found with id: "
-                                                + request.getPatientId()
-                                )
-                        );
+                        .orElseThrow(() -> {
 
+                            logger.warn(
+                                    "Patient not found with id: {} during appointment update",
+                                    request.getPatientId()
+                            );
 
-        
+                            return new ResourceNotFoundException(
+                                    "Patient not found with id: "
+                                            + request.getPatientId()
+                            );
+                        });
 
         Doctor doctor =
                 doctorRepository
                         .findById(
                                 request.getDoctorId()
                         )
-                        .orElseThrow(() ->
-                                new ResourceNotFoundException(
-                                        "Doctor not found with id: "
-                                                + request.getDoctorId()
-                                )
-                        );
+                        .orElseThrow(() -> {
 
+                            logger.warn(
+                                    "Doctor not found with id: {} during appointment update",
+                                    request.getDoctorId()
+                            );
 
-       
+                            return new ResourceNotFoundException(
+                                    "Doctor not found with id: "
+                                            + request.getDoctorId()
+                            );
+                        });
 
         appointment.setPatient(
                 patient
@@ -258,41 +324,62 @@ public class AppointmentService {
                 request.getStatus()
         );
 
-
         Appointment updatedAppointment =
                 appointmentRepository.save(
                         appointment
                 );
 
+        logger.info(
+                "Appointment updated successfully with id: {}",
+                id
+        );
 
         return convertToResponse(
                 updatedAppointment
         );
     }
 
-
-    
+    // ==============================
+    // DELETE APPOINTMENT
+    // ==============================
 
     public void deleteAppointment(
             Long id) {
 
+        logger.info(
+                "Deleting appointment with id: {}",
+                id
+        );
+
         Appointment appointment =
                 appointmentRepository
                         .findById(id)
-                        .orElseThrow(() ->
-                                new ResourceNotFoundException(
-                                        "Appointment not found with id: "
-                                                + id
-                                )
-                        );
+                        .orElseThrow(() -> {
+
+                            logger.warn(
+                                    "Appointment not found for deletion with id: {}",
+                                    id
+                            );
+
+                            return new ResourceNotFoundException(
+                                    "Appointment not found with id: "
+                                            + id
+                            );
+                        });
 
         appointmentRepository.delete(
                 appointment
         );
+
+        logger.info(
+                "Appointment deleted successfully with id: {}",
+                id
+        );
     }
 
-
-    
+    // ==============================
+    // CONVERT TO RESPONSE DTO
+    // ==============================
 
     private AppointmentResponseDTO
     convertToResponse(
@@ -301,13 +388,10 @@ public class AppointmentService {
         AppointmentResponseDTO response =
                 new AppointmentResponseDTO();
 
-
         response.setId(
                 appointment.getId()
         );
 
-
-        
         response.setPatientId(
                 appointment
                         .getPatient()
@@ -332,9 +416,6 @@ public class AppointmentService {
                         .getAddress()
         );
 
-
-        
-
         response.setDoctorId(
                 appointment
                         .getDoctor()
@@ -352,9 +433,6 @@ public class AppointmentService {
                         .getDoctor()
                         .getSpecialization()
         );
-
-
-        
 
         response.setAppointmentDate(
                 appointment
@@ -375,7 +453,6 @@ public class AppointmentService {
                 appointment
                         .getStatus()
         );
-
 
         return response;
     }

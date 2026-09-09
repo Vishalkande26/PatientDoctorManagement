@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="WARN">
+
+    <Appenders>
+
+        <!-- Console Appender -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <!-- File Appender -->
+        <RollingFile
+            name="RollingFile"
+            fileName="logs/application.log"
+            filePattern="logs/application-%d{yyyy-MM-dd}-%i.log.gz">
+
+            <PatternLayout
+                pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+
+            <Policies>
+
+                <!-- New log file every day -->
+                <TimeBasedTriggeringPolicy
+                    interval="1"
+                    modulate="true"/>
+
+                <!-- New log file after 10 MB -->
+                <SizeBasedTriggeringPolicy
+                    size="10 MB"/>
+
+            </Policies>
+
+            <DefaultRolloverStrategy max="10"/>
+
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+
+        <!-- Application Logger -->
+        <Logger
+            name="com.patientmanagement"
+            level="INFO"
+            additivity="false">
+
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+
+        </Logger>
+
+        <!-- Root Logger -->
+        <Root level="INFO">
+
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+
+        </Root>
+
+    </Loggers>
+
+</Configuration>

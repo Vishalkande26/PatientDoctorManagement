@@ -1,5 +1,7 @@
 package com.patientmanagement.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,6 +17,9 @@ import com.patientmanagement.security.JwtService;
 
 @Service
 public class AuthService {
+
+    private static final Logger logger =
+            LoggerFactory.getLogger(AuthService.class);
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -33,10 +38,23 @@ public class AuthService {
         this.authenticationManager = authenticationManager;
     }
 
-    
+    // ==============================
+    // REGISTER USER
+    // ==============================
+
     public String register(RegisterRequestDTO request) {
 
+        logger.info(
+                "Registration request received for email: {}",
+                request.getEmail()
+        );
+
         if (userRepository.existsByEmail(request.getEmail())) {
+
+            logger.warn(
+                    "Registration failed. Email already registered: {}",
+                    request.getEmail()
+            );
 
             throw new RuntimeException(
                     "Email already registered"
@@ -49,22 +67,40 @@ public class AuthService {
 
         user.setEmail(request.getEmail());
 
+        /*
+         * Password is encoded before storing.
+         * Never log the password.
+         */
         user.setPassword(
                 passwordEncoder.encode(
                         request.getPassword()
                 )
         );
 
-        
         user.setRole(Role.PATIENT);
 
         userRepository.save(user);
 
+        logger.info(
+                "User registered successfully with email: {} and role: {}",
+                user.getEmail(),
+                user.getRole()
+        );
+
         return "User registered successfully";
     }
 
-    
-    public LoginResponseDTO login(LoginRequestDTO request) {
+    // ==============================
+    // LOGIN USER
+    // ==============================
+
+    public LoginResponseDTO login(
+            LoginRequestDTO request) {
+
+        logger.info(
+                "Login attempt received for email: {}",
+                request.getEmail()
+        );
 
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -75,14 +111,30 @@ public class AuthService {
 
         User user = userRepository
                 .findByEmail(request.getEmail())
-                .orElseThrow(() ->
-                        new RuntimeException(
-                                "User not found"
-                        )
-                );
+                .orElseThrow(() -> {
 
-        String token = jwtService.generateToken(user);
+                    logger.warn(
+                            "Login failed. User not found with email: {}",
+                            request.getEmail()
+                    );
 
+                    return new RuntimeException(
+                            "User not found"
+                    );
+                });
+
+        String token =
+                jwtService.generateToken(user);
+
+        logger.info(
+                "User logged in successfully with email: {} and role: {}",
+                user.getEmail(),
+                user.getRole()
+        );
+
+        /*
+         * JWT token is returned but never logged.
+         */
         return new LoginResponseDTO(
                 token,
                 user.getUsername(),

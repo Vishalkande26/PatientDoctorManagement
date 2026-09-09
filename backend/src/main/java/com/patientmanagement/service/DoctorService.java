@@ -2,6 +2,8 @@ package com.patientmanagement.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.patientmanagement.entity.Doctor;
@@ -10,6 +12,9 @@ import com.patientmanagement.repository.DoctorRepository;
 
 @Service
 public class DoctorService {
+
+    private static final Logger logger =
+            LoggerFactory.getLogger(DoctorService.class);
 
     private final DoctorRepository doctorRepository;
 
@@ -23,10 +28,18 @@ public class DoctorService {
 
     public Doctor createDoctor(Doctor doctor) {
 
-        // New doctors are active by default
+        logger.info("Creating doctor with name: {}", doctor.getName());
+
         doctor.setDeleted(false);
 
-        return doctorRepository.save(doctor);
+        Doctor savedDoctor = doctorRepository.save(doctor);
+
+        logger.info(
+                "Doctor created successfully with id: {}",
+                savedDoctor.getId()
+        );
+
+        return savedDoctor;
     }
 
     // ==============================
@@ -35,7 +48,17 @@ public class DoctorService {
 
     public List<Doctor> getAllDoctors() {
 
-        return doctorRepository.findByDeletedFalse();
+        logger.info("Fetching all active doctors");
+
+        List<Doctor> doctors =
+                doctorRepository.findByDeletedFalse();
+
+        logger.info(
+                "Found {} active doctors",
+                doctors.size()
+        );
+
+        return doctors;
     }
 
     // ==============================
@@ -44,13 +67,21 @@ public class DoctorService {
 
     public Doctor getDoctorById(Long id) {
 
+        logger.info("Fetching doctor with id: {}", id);
+
         return doctorRepository
                 .findByIdAndDeletedFalse(id)
-                .orElseThrow(() ->
-                        new ResourceNotFoundException(
-                                "Doctor not found with id: " + id
-                        )
-                );
+                .orElseThrow(() -> {
+
+                    logger.warn(
+                            "Doctor not found with id: {}",
+                            id
+                    );
+
+                    return new ResourceNotFoundException(
+                            "Doctor not found with id: " + id
+                    );
+                });
     }
 
     // ==============================
@@ -61,14 +92,25 @@ public class DoctorService {
             Long id,
             Doctor doctor) {
 
+        logger.info(
+                "Updating doctor with id: {}",
+                id
+        );
+
         Doctor existingDoctor =
                 doctorRepository
                         .findByIdAndDeletedFalse(id)
-                        .orElseThrow(() ->
-                                new ResourceNotFoundException(
-                                        "Doctor not found with id: " + id
-                                )
-                        );
+                        .orElseThrow(() -> {
+
+                            logger.warn(
+                                    "Doctor not found for update with id: {}",
+                                    id
+                            );
+
+                            return new ResourceNotFoundException(
+                                    "Doctor not found with id: " + id
+                            );
+                        });
 
         existingDoctor.setName(
                 doctor.getName()
@@ -90,7 +132,15 @@ public class DoctorService {
                 doctor.getExperience()
         );
 
-        return doctorRepository.save(existingDoctor);
+        Doctor updatedDoctor =
+                doctorRepository.save(existingDoctor);
+
+        logger.info(
+                "Doctor updated successfully with id: {}",
+                id
+        );
+
+        return updatedDoctor;
     }
 
     // ==============================
@@ -99,20 +149,33 @@ public class DoctorService {
 
     public void deleteDoctor(Long id) {
 
+        logger.info(
+                "Soft deleting doctor with id: {}",
+                id
+        );
+
         Doctor existingDoctor =
                 doctorRepository
                         .findByIdAndDeletedFalse(id)
-                        .orElseThrow(() ->
-                                new ResourceNotFoundException(
-                                        "Doctor not found with id: " + id
-                                )
-                        );
+                        .orElseThrow(() -> {
 
-        // Soft delete:
-        // false = active
-        // true  = deleted
+                            logger.warn(
+                                    "Doctor not found for deletion with id: {}",
+                                    id
+                            );
+
+                            return new ResourceNotFoundException(
+                                    "Doctor not found with id: " + id
+                            );
+                        });
+
         existingDoctor.setDeleted(true);
 
         doctorRepository.save(existingDoctor);
+
+        logger.info(
+                "Doctor with id {} was soft deleted successfully",
+                id
+        );
     }
 }
