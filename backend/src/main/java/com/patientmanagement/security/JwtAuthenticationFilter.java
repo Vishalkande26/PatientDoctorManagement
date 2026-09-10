@@ -2,6 +2,9 @@ package com.patientmanagement.security;
 
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,6 +20,9 @@ import jakarta.servlet.http.HttpServletResponse;
 @Component
 public class JwtAuthenticationFilter
         extends OncePerRequestFilter {
+
+    private static final Logger logger =
+            LoggerFactory.getLogger(JwtAuthenticationFilter.class);
 
     private final JwtService jwtService;
     private final CustomUserDetailsService userDetailsService;
@@ -38,7 +44,10 @@ public class JwtAuthenticationFilter
 
         String path = request.getServletPath();
 
-  
+        // ==============================
+        // PUBLIC ENDPOINTS
+        // ==============================
+
         if (path.equals("/api/auth/login")
                 || path.equals("/api/auth/register")
                 || path.equals("/swagger-ui.html")
@@ -50,12 +59,21 @@ public class JwtAuthenticationFilter
             return;
         }
 
+        // ==============================
+        // GET AUTHORIZATION HEADER
+        // ==============================
+
         String authHeader =
                 request.getHeader("Authorization");
 
-        
         if (authHeader == null
                 || !authHeader.startsWith("Bearer ")) {
+
+            logger.debug(
+                    "No Bearer token provided for request: {} {}",
+                    request.getMethod(),
+                    path
+            );
 
             filterChain.doFilter(request, response);
             return;
@@ -65,6 +83,7 @@ public class JwtAuthenticationFilter
 
         try {
 
+            // Extract email from JWT
             String email =
                     jwtService.extractEmail(token);
 
@@ -77,6 +96,7 @@ public class JwtAuthenticationFilter
                         userDetailsService
                             .loadUserByUsername(email);
 
+                // Validate JWT
                 if (jwtService.isTokenValid(token)) {
 
                     UsernamePasswordAuthenticationToken
@@ -97,11 +117,30 @@ public class JwtAuthenticationFilter
                         .setAuthentication(
                             authentication
                         );
+
+                    logger.info(
+                            "JWT authentication successful for user: {}",
+                            email
+                    );
+
+                } else {
+
+                    logger.warn(
+                            "Invalid JWT token for request: {} {}",
+                            request.getMethod(),
+                            path
+                    );
                 }
             }
 
         } catch (Exception e) {
-            // Invalid JWT token
+
+            logger.warn(
+                    "JWT authentication failed for request: {} {} - {}",
+                    request.getMethod(),
+                    path,
+                    e.getMessage()
+            );
         }
 
         filterChain.doFilter(request, response);

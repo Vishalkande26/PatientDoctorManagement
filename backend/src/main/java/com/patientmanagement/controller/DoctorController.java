@@ -2,6 +2,9 @@ package com.patientmanagement.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,25 +23,26 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/doctors")
-
 public class DoctorController {
 
-    private final DoctorService doctorService;
+    private static final Logger logger =
+            LoggerFactory.getLogger(DoctorController.class);
 
+    private final DoctorService doctorService;
 
     public DoctorController(
             DoctorService doctorService) {
 
-        this.doctorService =
-                doctorService;
+        this.doctorService = doctorService;
     }
-
-
-    
 
     @PostMapping
     public ResponseEntity<Doctor> createDoctor(
             @Valid @RequestBody Doctor doctor) {
+
+        logger.info(
+                "POST /api/doctors - Creating doctor"
+        );
 
         Doctor savedDoctor =
                 doctorService.createDoctor(doctor);
@@ -49,42 +53,43 @@ public class DoctorController {
         );
     }
 
-
-    
-
     @GetMapping
     public ResponseEntity<List<Doctor>> getAllDoctors() {
+
+        logger.info(
+                "GET /api/doctors - Fetching all active doctors"
+        );
 
         List<Doctor> doctors =
                 doctorService.getAllDoctors();
 
-        return ResponseEntity.ok(
-                doctors
-        );
+        return ResponseEntity.ok(doctors);
     }
-
-
-    
 
     @GetMapping("/{id}")
     public ResponseEntity<Doctor> getDoctorById(
             @PathVariable Long id) {
 
+        logger.info(
+                "GET /api/doctors/{} - Fetching doctor",
+                id
+        );
+
         Doctor doctor =
                 doctorService.getDoctorById(id);
 
-        return ResponseEntity.ok(
-                doctor
-        );
+        return ResponseEntity.ok(doctor);
     }
-
-
-
 
     @PutMapping("/{id}")
     public ResponseEntity<Doctor> updateDoctor(
             @PathVariable Long id,
             @Valid @RequestBody Doctor doctor) {
+
+        logger.info(
+                "PUT /api/doctors/{} - Updating doctor",
+                id
+        );
 
         Doctor updatedDoctor =
                 doctorService.updateDoctor(
@@ -92,17 +97,17 @@ public class DoctorController {
                         doctor
                 );
 
-        return ResponseEntity.ok(
-                updatedDoctor
-        );
+        return ResponseEntity.ok(updatedDoctor);
     }
-
-
-    
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteDoctor(
             @PathVariable Long id) {
+
+        logger.info(
+                "DELETE /api/doctors/{} - Soft deleting doctor",
+                id
+        );
 
         doctorService.deleteDoctor(id);
 

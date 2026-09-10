@@ -60,12 +60,7 @@ public class Doctor {
     )
     private int experience;
 
-    /*
-     * Soft delete flag.
-     *
-     * false = active doctor
-     * true  = deleted doctor
-     */
+    
     @Column(nullable = false)
     private boolean deleted = false;
 
