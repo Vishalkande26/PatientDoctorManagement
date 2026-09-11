@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -53,6 +54,15 @@ public class Patient {
 
     @NotBlank(message = "Address is required")
     private String address;
+
+    /*
+     * Soft delete flag.
+     *
+     * false = active patient
+     * true  = deleted patient
+     */
+    @Column(name = "deleted", nullable = false)
+    private boolean deleted = false;
 
     @ManyToMany(mappedBy = "patients")
     @JsonIgnore
@@ -115,6 +125,14 @@ public class Patient {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
     }
 
     public Set<Doctor> getDoctors() {

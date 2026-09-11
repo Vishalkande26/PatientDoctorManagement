@@ -5,11 +5,9 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.patientmanagement.entity.Patient;
 import com.patientmanagement.exception.ResourceNotFoundException;
-import com.patientmanagement.repository.AppointmentRepository;
 import com.patientmanagement.repository.PatientRepository;
 
 @Service
@@ -20,17 +18,11 @@ public class PatientService {
 
     private final PatientRepository patientRepository;
 
-    private final AppointmentRepository appointmentRepository;
-
     public PatientService(
-            PatientRepository patientRepository,
-            AppointmentRepository appointmentRepository) {
+            PatientRepository patientRepository) {
 
         this.patientRepository =
                 patientRepository;
-
-        this.appointmentRepository =
-                appointmentRepository;
     }
 
     // ==============================
@@ -45,6 +37,11 @@ public class PatientService {
                 patient.getName()
         );
 
+        /*
+         * New patients are always active.
+         */
+        patient.setDeleted(false);
+
         Patient savedPatient =
                 patientRepository.save(patient);
 
@@ -57,18 +54,18 @@ public class PatientService {
     }
 
     // ==============================
-    // GET ALL PATIENTS
+    // GET ALL ACTIVE PATIENTS
     // ==============================
 
     public List<Patient> getAllPatients() {
 
-        logger.info("Fetching all patients");
+        logger.info("Fetching all active patients");
 
         List<Patient> patients =
-                patientRepository.findAll();
+                patientRepository.findByDeletedFalse();
 
         logger.info(
-                "Found {} patients",
+                "Found {} active patients",
                 patients.size()
         );
 
@@ -83,17 +80,17 @@ public class PatientService {
             Long id) {
 
         logger.info(
-                "Fetching patient with id: {}",
+                "Fetching active patient with id: {}",
                 id
         );
 
         return patientRepository
-                .findById(id)
+                .findByIdAndDeletedFalse(id)
                 .orElseThrow(
                         () -> {
 
                             logger.warn(
-                                    "Patient not found with id: {}",
+                                    "Active patient not found with id: {}",
                                     id
                             );
 
@@ -119,7 +116,7 @@ public class PatientService {
 
         Patient existingPatient =
                 patientRepository
-                        .findById(id)
+                        .findByIdAndDeletedFalse(id)
                         .orElseThrow(
                                 () -> {
 
@@ -158,6 +155,12 @@ public class PatientService {
                 patient.getAddress()
         );
 
+        /*
+         * Do not allow the update request to
+         * change the soft-delete status.
+         */
+        existingPatient.setDeleted(false);
+
         Patient updatedPatient =
                 patientRepository.save(
                         existingPatient
@@ -172,21 +175,20 @@ public class PatientService {
     }
 
     // ==============================
-    // DELETE PATIENT
+    // SOFT DELETE PATIENT
     // ==============================
 
-    @Transactional
     public void deletePatient(
             Long id) {
 
         logger.info(
-                "Starting deletion of patient with id: {}",
+                "Starting soft deletion of patient with id: {}",
                 id
         );
 
         Patient patient =
                 patientRepository
-                        .findById(id)
+                        .findByIdAndDeletedFalse(id)
                         .orElseThrow(
                                 () -> {
 
@@ -202,26 +204,17 @@ public class PatientService {
                         );
 
         /*
-         * Delete appointments first.
-         * appointments.patient_id references patients.id.
+         * Soft delete:
+         *
+         * The patient row remains in the database.
+         * Only deleted changes from 0 to 1.
          */
-        logger.info(
-                "Deleting appointments for patient with id: {}",
-                id
-        );
+        patient.setDeleted(true);
 
-        appointmentRepository
-                .deleteByPatient_Id(id);
-
-        /*
-         * Now delete patient.
-         */
-        patientRepository.delete(
-                patient
-        );
+        patientRepository.save(patient);
 
         logger.info(
-                "Patient deleted successfully with id: {}",
+                "Patient soft deleted successfully with id: {}",
                 id
         );
     }

@@ -35,6 +35,10 @@ public class PatientController {
         this.patientService = patientService;
     }
 
+    // ==============================
+    // CREATE
+    // ==============================
+
     @PostMapping
     public ResponseEntity<Patient> createPatient(
             @Valid @RequestBody Patient patient) {
@@ -52,11 +56,15 @@ public class PatientController {
         );
     }
 
+    // ==============================
+    // GET ALL ACTIVE PATIENTS
+    // ==============================
+
     @GetMapping
     public ResponseEntity<List<Patient>> getAllPatients() {
 
         logger.info(
-                "GET /api/patients - Fetching all patients"
+                "GET /api/patients - Fetching active patients"
         );
 
         List<Patient> patients =
@@ -64,6 +72,10 @@ public class PatientController {
 
         return ResponseEntity.ok(patients);
     }
+
+    // ==============================
+    // GET ACTIVE PATIENT BY ID
+    // ==============================
 
     @GetMapping("/{id}")
     public ResponseEntity<Patient> getPatientById(
@@ -79,6 +91,10 @@ public class PatientController {
 
         return ResponseEntity.ok(patient);
     }
+
+    // ==============================
+    // UPDATE
+    // ==============================
 
     @PutMapping("/{id}")
     public ResponseEntity<Patient> updatePatient(
@@ -99,12 +115,16 @@ public class PatientController {
         return ResponseEntity.ok(updatedPatient);
     }
 
+    // ==============================
+    // SOFT DELETE
+    // ==============================
+
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deletePatient(
             @PathVariable Long id) {
 
         logger.info(
-                "DELETE /api/patients/{} - Deleting patient",
+                "DELETE /api/patients/{} - Soft deleting patient",
                 id
         );
 

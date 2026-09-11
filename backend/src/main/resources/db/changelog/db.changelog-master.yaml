@@ -298,4 +298,5 @@ databaseChangeLog:
         validate: true
 - include:
     file: db/changelog/changes/004-add-doctor-soft-delete.yaml        
-
+- include:
+    file: db/changelog/sql/005-add-patient-soft-delete.sql
