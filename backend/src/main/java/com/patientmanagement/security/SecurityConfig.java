@@ -66,34 +66,64 @@ public class SecurityConfig {
 
         http
 
+            /*
+             * ==========================================
+             * CSRF
+             * ==========================================
+             */
             .csrf(csrf ->
                     csrf.disable()
             )
 
+            /*
+             * ==========================================
+             * CORS
+             * ==========================================
+             */
             .cors(cors -> {})
 
+            /*
+             * ==========================================
+             * SESSION
+             * ==========================================
+             */
             .sessionManagement(session ->
                     session.sessionCreationPolicy(
                             SessionCreationPolicy.STATELESS
                     )
             )
 
+            /*
+             * ==========================================
+             * AUTHENTICATION PROVIDER
+             * ==========================================
+             */
             .authenticationProvider(
                     authenticationProvider
             )
 
+            /*
+             * ==========================================
+             * AUTHORIZATION
+             * ==========================================
+             */
             .authorizeHttpRequests(auth -> auth
 
                 /*
+                 * ======================================
                  * OPTIONS
+                 * ======================================
                  */
                 .requestMatchers(
                         HttpMethod.OPTIONS,
                         "/**"
                 ).permitAll()
 
+
                 /*
+                 * ======================================
                  * SWAGGER
+                 * ======================================
                  */
                 .requestMatchers(
                         "/swagger-ui/**",
@@ -101,15 +131,26 @@ public class SecurityConfig {
                         "/v3/api-docs/**"
                 ).permitAll()
 
+
                 /*
+                 * ======================================
                  * AUTH
+                 * ======================================
+                 *
+                 * Login and registration do not require
+                 * JWT authentication.
                  */
                 .requestMatchers(
                         "/api/auth/**"
                 ).permitAll()
 
+
                 /*
+                 * ======================================
                  * USERS
+                 * ======================================
+                 *
+                 * Only ADMIN can manage users.
                  */
                 .requestMatchers(
                         "/api/users/**"
@@ -117,8 +158,11 @@ public class SecurityConfig {
                         "ROLE_ADMIN"
                 )
 
+
                 /*
+                 * ======================================
                  * DOCTORS - GET
+                 * ======================================
                  */
                 .requestMatchers(
                         HttpMethod.GET,
@@ -129,8 +173,11 @@ public class SecurityConfig {
                         "ROLE_ADMIN"
                 )
 
+
                 /*
+                 * ======================================
                  * DOCTORS - CREATE
+                 * ======================================
                  */
                 .requestMatchers(
                         HttpMethod.POST,
@@ -139,8 +186,11 @@ public class SecurityConfig {
                         "ROLE_ADMIN"
                 )
 
+
                 /*
+                 * ======================================
                  * DOCTORS - UPDATE
+                 * ======================================
                  */
                 .requestMatchers(
                         HttpMethod.PUT,
@@ -149,8 +199,11 @@ public class SecurityConfig {
                         "ROLE_ADMIN"
                 )
 
+
                 /*
+                 * ======================================
                  * DOCTORS - DELETE
+                 * ======================================
                  */
                 .requestMatchers(
                         HttpMethod.DELETE,
@@ -159,8 +212,11 @@ public class SecurityConfig {
                         "ROLE_ADMIN"
                 )
 
+
                 /*
+                 * ======================================
                  * PATIENTS - GET
+                 * ======================================
                  */
                 .requestMatchers(
                         HttpMethod.GET,
@@ -170,8 +226,11 @@ public class SecurityConfig {
                         "ROLE_ADMIN"
                 )
 
+
                 /*
+                 * ======================================
                  * PATIENTS - CREATE
+                 * ======================================
                  */
                 .requestMatchers(
                         HttpMethod.POST,
@@ -181,8 +240,11 @@ public class SecurityConfig {
                         "ROLE_ADMIN"
                 )
 
+
                 /*
+                 * ======================================
                  * PATIENTS - UPDATE
+                 * ======================================
                  */
                 .requestMatchers(
                         HttpMethod.PUT,
@@ -191,8 +253,11 @@ public class SecurityConfig {
                         "ROLE_ADMIN"
                 )
 
+
                 /*
+                 * ======================================
                  * PATIENTS - DELETE
+                 * ======================================
                  */
                 .requestMatchers(
                         HttpMethod.DELETE,
@@ -201,14 +266,11 @@ public class SecurityConfig {
                         "ROLE_ADMIN"
                 )
 
-                /*
-                 * =====================================
-                 * APPOINTMENTS
-                 * =====================================
-                 */
 
                 /*
-                 * VIEW APPOINTMENTS
+                 * ======================================
+                 * APPOINTMENTS - GET
+                 * ======================================
                  */
                 .requestMatchers(
                         HttpMethod.GET,
@@ -219,10 +281,11 @@ public class SecurityConfig {
                         "ROLE_ADMIN"
                 )
 
+
                 /*
-                 * CREATE APPOINTMENT
-                 *
-                 * PATIENT IS ALLOWED
+                 * ======================================
+                 * APPOINTMENTS - CREATE
+                 * ======================================
                  */
                 .requestMatchers(
                         HttpMethod.POST,
@@ -232,8 +295,11 @@ public class SecurityConfig {
                         "ROLE_ADMIN"
                 )
 
+
                 /*
-                 * UPDATE APPOINTMENT
+                 * ======================================
+                 * APPOINTMENTS - UPDATE
+                 * ======================================
                  */
                 .requestMatchers(
                         HttpMethod.PUT,
@@ -243,8 +309,11 @@ public class SecurityConfig {
                         "ROLE_ADMIN"
                 )
 
+
                 /*
-                 * DELETE APPOINTMENT
+                 * ======================================
+                 * APPOINTMENTS - DELETE
+                 * ======================================
                  */
                 .requestMatchers(
                         HttpMethod.DELETE,
@@ -253,8 +322,11 @@ public class SecurityConfig {
                         "ROLE_ADMIN"
                 )
 
+
                 /*
-                 * DOCTOR-PATIENT
+                 * ======================================
+                 * DOCTOR-PATIENT - CREATE
+                 * ======================================
                  */
                 .requestMatchers(
                         HttpMethod.POST,
@@ -263,6 +335,12 @@ public class SecurityConfig {
                         "ROLE_ADMIN"
                 )
 
+
+                /*
+                 * ======================================
+                 * DOCTOR-PATIENT - DELETE
+                 * ======================================
+                 */
                 .requestMatchers(
                         HttpMethod.DELETE,
                         "/api/doctor-patient/**"
@@ -270,6 +348,12 @@ public class SecurityConfig {
                         "ROLE_ADMIN"
                 )
 
+
+                /*
+                 * ======================================
+                 * DOCTOR-PATIENT - GET
+                 * ======================================
+                 */
                 .requestMatchers(
                         HttpMethod.GET,
                         "/api/doctor-patient/**"
@@ -279,13 +363,50 @@ public class SecurityConfig {
                         "ROLE_ADMIN"
                 )
 
+
                 /*
+                 * ======================================
+                 * FILE MANAGEMENT
+                 * ======================================
+                 *
+                 * Upload:
+                 * POST /api/files/patient/{patientId}
+                 *
+                 * Download:
+                 * GET /api/files/{id}/download
+                 *
+                 * Replace:
+                 * PUT /api/files/{id}
+                 *
+                 * Delete:
+                 * DELETE /api/files/{id}
+                 *
+                 * List:
+                 * GET /api/files/patient/{patientId}
+                 *
+                 * All file operations require
+                 * a valid JWT token.
+                 */
+                .requestMatchers(
+                        "/api/files/**"
+                ).authenticated()
+
+
+                /*
+                 * ======================================
                  * EVERYTHING ELSE
+                 * ======================================
                  */
                 .anyRequest()
                 .authenticated()
             )
 
+
+            /*
+             * ==========================================
+             * JWT FILTER
+             * ==========================================
+             */
             .addFilterBefore(
                     jwtAuthenticationFilter,
                     UsernamePasswordAuthenticationFilter.class

@@ -9,11 +9,20 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+
     show-sql: true
+
     properties:
       hibernate:
         dialect: org.hibernate.dialect.SQLServerDialect
 
   liquibase:
     enabled: true
-    change-log: classpath:db/changelog/db.changelog-master.yaml
+    change-log: classpath:db/changelog/db.changelog-app-master.yaml
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 12MB
+      file-size-threshold: 0B

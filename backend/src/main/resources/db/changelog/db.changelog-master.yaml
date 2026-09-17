@@ -1,302 +1,444 @@
 databaseChangeLog:
-- changeSet:
-    id: 1788867900470-1
-    author: Vishal (generated)
-    changes:
-    - createTable:
-        columns:
-        - column:
-            autoIncrement: true
-            computed: false
-            constraints:
-              nullable: false
-              primaryKey: true
-              primaryKeyName: PK__users__3213E83FD162AEF3
-            name: id
-            type: bigint
-        - column:
-            computed: false
-            constraints:
-              nullable: false
-            name: email
-            type: varchar(100)
-        - column:
-            computed: false
-            constraints:
-              nullable: false
-            name: password
-            type: varchar(100)
-        - column:
-            computed: false
-            constraints:
-              nullable: false
-            name: role
-            type: varchar(255)
-        - column:
-            computed: false
-            constraints:
-              nullable: false
-            name: username
-            type: varchar(50)
-        tableName: users
-- changeSet:
-    id: 1788867900470-2
-    author: Vishal (generated)
-    changes:
-    - createTable:
-        columns:
-        - column:
-            autoIncrement: true
-            computed: false
-            constraints:
-              nullable: false
-              primaryKey: true
-              primaryKeyName: PK__appointm__3213E83F265BBF1C
-            name: id
-            type: bigint
-        - column:
-            computed: false
-            constraints:
-              nullable: false
-            name: appointment_date
-            type: date
-        - column:
-            computed: false
-            constraints:
-              nullable: false
-            name: appointment_time
-            type: time
-        - column:
-            computed: false
-            name: reason
-            type: varchar(255)
-        - column:
-            computed: false
-            constraints:
-              nullable: false
-            name: status
-            type: varchar(255)
-        - column:
-            computed: false
-            constraints:
-              nullable: false
-            name: doctor_id
-            type: bigint
-        - column:
-            computed: false
-            constraints:
-              nullable: false
-            name: patient_id
-            type: bigint
-        tableName: appointments
-- changeSet:
-    id: 1788867900470-3
-    author: Vishal (generated)
-    changes:
-    - createTable:
-        columns:
-        - column:
-            computed: false
-            constraints:
-              nullable: false
-              primaryKey: true
-              primaryKeyName: PK__doctor_p__874CFB231B5908AA
-            name: doctor_id
-            type: bigint
-        - column:
-            computed: false
-            constraints:
-              nullable: false
-              primaryKey: true
-              primaryKeyName: PK__doctor_p__874CFB231B5908AA
-            name: patient_id
-            type: bigint
-        tableName: doctor_patient
-- changeSet:
-    id: 1788867900470-4
-    author: Vishal (generated)
-    changes:
-    - createTable:
-        columns:
-        - column:
-            autoIncrement: true
-            computed: false
-            constraints:
-              nullable: false
-              primaryKey: true
-              primaryKeyName: PK__patients__3213E83F6DF24DB0
-            name: id
-            type: bigint
-        - column:
-            computed: false
-            name: address
-            type: varchar(255)
-        - column:
-            computed: false
-            constraints:
-              nullable: false
-            name: age
-            type: int
-        - column:
-            computed: false
-            name: disease
-            type: varchar(255)
-        - column:
-            computed: false
-            constraints:
-              nullable: false
-            name: gender
-            type: varchar(255)
-        - column:
-            computed: false
-            name: name
-            type: varchar(100)
-        - column:
-            computed: false
-            name: phone
-            type: varchar(255)
-        - column:
-            computed: false
-            name: user_id
-            type: bigint
-        tableName: patients
-- changeSet:
-    id: 1788867900470-5
-    author: Vishal (generated)
-    changes:
-    - createTable:
-        columns:
-        - column:
-            autoIncrement: true
-            computed: false
-            constraints:
-              nullable: false
-              primaryKey: true
-              primaryKeyName: PK__doctors__3213E83F0F80BDDF
-            name: id
-            type: bigint
-        - column:
-            computed: false
-            constraints:
-              nullable: false
-            name: email
-            type: varchar(255)
-        - column:
-            computed: false
-            name: experience
-            type: int
-        - column:
-            computed: false
-            name: name
-            type: varchar(100)
-        - column:
-            computed: false
-            constraints:
-              nullable: false
-            name: phone
-            type: varchar(255)
-        - column:
-            computed: false
-            constraints:
-              nullable: false
-            name: specialization
-            type: varchar(255)
-        tableName: doctors
-- changeSet:
-    id: 1788867900470-6
-    author: Vishal (generated)
-    changes:
-    - addUniqueConstraint:
-        columnNames: email
-        constraintName: UK6dotkott2kjsp8vw4d0m25fb7
-        tableName: users
-- changeSet:
-    id: 1788867900470-7
-    author: Vishal (generated)
-    changes:
-    - addForeignKeyConstraint:
-        baseColumnNames: user_id
-        baseTableName: patients
-        constraintName: FKuwca24wcd1tg6pjex8lmc0y7
-        deferrable: false
-        initiallyDeferred: false
-        onDelete: NO ACTION
-        onUpdate: NO ACTION
-        referencedColumnNames: id
-        referencedTableName: users
-        validate: true
-- changeSet:
-    id: 1788867900470-8
-    author: Vishal (generated)
-    changes:
-    - createIndex:
-        columns:
-        - column:
-            name: user_id
-        indexName: UK9tbsl3fmey0eofbm2xj69v4qs
-        tableName: patients
-        unique: true
-- changeSet:
-    id: 1788867900470-9
-    author: Vishal (generated)
-    changes:
-    - addForeignKeyConstraint:
-        baseColumnNames: patient_id
-        baseTableName: appointments
-        constraintName: FK8exap5wmg8kmb1g1rx3by21yt
-        deferrable: false
-        initiallyDeferred: false
-        onDelete: NO ACTION
-        onUpdate: NO ACTION
-        referencedColumnNames: id
-        referencedTableName: patients
-        validate: true
-- changeSet:
-    id: 1788867900470-10
-    author: Vishal (generated)
-    changes:
-    - addForeignKeyConstraint:
-        baseColumnNames: doctor_id
-        baseTableName: appointments
-        constraintName: FKmujeo4tymoo98cmf7uj3vsv76
-        deferrable: false
-        initiallyDeferred: false
-        onDelete: NO ACTION
-        onUpdate: NO ACTION
-        referencedColumnNames: id
-        referencedTableName: doctors
-        validate: true
-- changeSet:
-    id: 1788867900470-11
-    author: Vishal (generated)
-    changes:
-    - addForeignKeyConstraint:
-        baseColumnNames: doctor_id
-        baseTableName: doctor_patient
-        constraintName: FK9gfear64wbhtnnxgqqj5q94x6
-        deferrable: false
-        initiallyDeferred: false
-        onDelete: NO ACTION
-        onUpdate: NO ACTION
-        referencedColumnNames: id
-        referencedTableName: doctors
-        validate: true
-- changeSet:
-    id: 1788867900470-12
-    author: Vishal (generated)
-    changes:
-    - addForeignKeyConstraint:
-        baseColumnNames: patient_id
-        baseTableName: doctor_patient
-        constraintName: FKjda75ix2tcxtuemg6v1n0f453
-        deferrable: false
-        initiallyDeferred: false
-        onDelete: NO ACTION
-        onUpdate: NO ACTION
-        referencedColumnNames: id
-        referencedTableName: patients
-        validate: true
-- include:
-    file: db/changelog/changes/004-add-doctor-soft-delete.yaml        
-- include:
-    file: db/changelog/sql/005-add-patient-soft-delete.sql
+
+  # ==========================================
+  # USERS TABLE
+  # ==========================================
+
+  - changeSet:
+      id: 1788867900470-1
+      author: Vishal (generated)
+
+      changes:
+
+        - createTable:
+            tableName: users
+
+            columns:
+
+              - column:
+                  autoIncrement: true
+                  computed: false
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PK__users__3213E83FD162AEF3
+                  name: id
+                  type: bigint
+
+              - column:
+                  computed: false
+                  constraints:
+                    nullable: false
+                  name: email
+                  type: varchar(100)
+
+              - column:
+                  computed: false
+                  constraints:
+                    nullable: false
+                  name: password
+                  type: varchar(100)
+
+              - column:
+                  computed: false
+                  constraints:
+                    nullable: false
+                  name: role
+                  type: varchar(255)
+
+              - column:
+                  computed: false
+                  constraints:
+                    nullable: false
+                  name: username
+                  type: varchar(50)
+
+
+  # ==========================================
+  # APPOINTMENTS TABLE
+  # ==========================================
+
+  - changeSet:
+      id: 1788867900470-2
+      author: Vishal (generated)
+
+      changes:
+
+        - createTable:
+            tableName: appointments
+
+            columns:
+
+              - column:
+                  autoIncrement: true
+                  computed: false
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PK__appointm__3213E83F265BBF1C
+                  name: id
+                  type: bigint
+
+              - column:
+                  computed: false
+                  constraints:
+                    nullable: false
+                  name: appointment_date
+                  type: date
+
+              - column:
+                  computed: false
+                  constraints:
+                    nullable: false
+                  name: appointment_time
+                  type: time
+
+              - column:
+                  computed: false
+                  name: reason
+                  type: varchar(255)
+
+              - column:
+                  computed: false
+                  constraints:
+                    nullable: false
+                  name: status
+                  type: varchar(255)
+
+              - column:
+                  computed: false
+                  constraints:
+                    nullable: false
+                  name: doctor_id
+                  type: bigint
+
+              - column:
+                  computed: false
+                  constraints:
+                    nullable: false
+                  name: patient_id
+                  type: bigint
+
+
+  # ==========================================
+  # DOCTOR-PATIENT MANY-TO-MANY TABLE
+  # ==========================================
+
+  - changeSet:
+      id: 1788867900470-3
+      author: Vishal (generated)
+
+      changes:
+
+        - createTable:
+            tableName: doctor_patient
+
+            columns:
+
+              - column:
+                  computed: false
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PK__doctor_p__874CFB231B5908AA
+                  name: doctor_id
+                  type: bigint
+
+              - column:
+                  computed: false
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PK__doctor_p__874CFB231B5908AA
+                  name: patient_id
+                  type: bigint
+
+
+  # ==========================================
+  # PATIENTS TABLE
+  # ==========================================
+
+  - changeSet:
+      id: 1788867900470-4
+      author: Vishal (generated)
+
+      changes:
+
+        - createTable:
+            tableName: patients
+
+            columns:
+
+              - column:
+                  autoIncrement: true
+                  computed: false
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PK__patients__3213E83F6DF24DB0
+                  name: id
+                  type: bigint
+
+              - column:
+                  computed: false
+                  name: address
+                  type: varchar(255)
+
+              - column:
+                  computed: false
+                  constraints:
+                    nullable: false
+                  name: age
+                  type: int
+
+              - column:
+                  computed: false
+                  name: disease
+                  type: varchar(255)
+
+              - column:
+                  computed: false
+                  constraints:
+                    nullable: false
+                  name: gender
+                  type: varchar(255)
+
+              - column:
+                  computed: false
+                  name: name
+                  type: varchar(100)
+
+              - column:
+                  computed: false
+                  name: phone
+                  type: varchar(255)
+
+              - column:
+                  computed: false
+                  name: user_id
+                  type: bigint
+
+
+  # ==========================================
+  # DOCTORS TABLE
+  # ==========================================
+
+  - changeSet:
+      id: 1788867900470-5
+      author: Vishal (generated)
+
+      changes:
+
+        - createTable:
+            tableName: doctors
+
+            columns:
+
+              - column:
+                  autoIncrement: true
+                  computed: false
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PK__doctors__3213E83F0F80BDDF
+                  name: id
+                  type: bigint
+
+              - column:
+                  computed: false
+                  constraints:
+                    nullable: false
+                  name: email
+                  type: varchar(255)
+
+              - column:
+                  computed: false
+                  name: experience
+                  type: int
+
+              - column:
+                  computed: false
+                  name: name
+                  type: varchar(100)
+
+              - column:
+                  computed: false
+                  constraints:
+                    nullable: false
+                  name: phone
+                  type: varchar(255)
+
+              - column:
+                  computed: false
+                  constraints:
+                    nullable: false
+                  name: specialization
+                  type: varchar(255)
+
+
+  # ==========================================
+  # UNIQUE USER EMAIL
+  # ==========================================
+
+  - changeSet:
+      id: 1788867900470-6
+      author: Vishal (generated)
+
+      changes:
+
+        - addUniqueConstraint:
+            columnNames: email
+            constraintName: UK6dotkott2kjsp8vw4d0m25fb7
+            tableName: users
+
+
+  # ==========================================
+  # PATIENT -> USER FOREIGN KEY
+  # ==========================================
+
+  - changeSet:
+      id: 1788867900470-7
+      author: Vishal (generated)
+
+      changes:
+
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: patients
+            constraintName: FKuwca24wcd1tg6pjex8lmc0y7
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: users
+            validate: true
+
+
+  # ==========================================
+  # UNIQUE PATIENT USER ID
+  # ==========================================
+
+  - changeSet:
+      id: 1788867900470-8
+      author: Vishal (generated)
+
+      changes:
+
+        - createIndex:
+            columns:
+
+              - column:
+                  name: user_id
+
+            indexName: UK9tbsl3fmey0eofbm2xj69v4qs
+            tableName: patients
+            unique: true
+
+
+  # ==========================================
+  # APPOINTMENT -> PATIENT FOREIGN KEY
+  # ==========================================
+
+  - changeSet:
+      id: 1788867900470-9
+      author: Vishal (generated)
+
+      changes:
+
+        - addForeignKeyConstraint:
+            baseColumnNames: patient_id
+            baseTableName: appointments
+            constraintName: FK8exap5wmg8kmb1g1rx3by21yt
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: patients
+            validate: true
+
+
+  # ==========================================
+  # APPOINTMENT -> DOCTOR FOREIGN KEY
+  # ==========================================
+
+  - changeSet:
+      id: 1788867900470-10
+      author: Vishal (generated)
+
+      changes:
+
+        - addForeignKeyConstraint:
+            baseColumnNames: doctor_id
+            baseTableName: appointments
+            constraintName: FKmujeo4tymoo98cmf7uj3vsv76
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: doctors
+            validate: true
+
+
+  # ==========================================
+  # DOCTOR-PATIENT -> DOCTOR FOREIGN KEY
+  # ==========================================
+
+  - changeSet:
+      id: 1788867900470-11
+      author: Vishal (generated)
+
+      changes:
+
+        - addForeignKeyConstraint:
+            baseColumnNames: doctor_id
+            baseTableName: doctor_patient
+            constraintName: FK9gfear64wbhtnnxgqqj5q94x6
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: doctors
+            validate: true
+
+
+  # ==========================================
+  # DOCTOR-PATIENT -> PATIENT FOREIGN KEY
+  # ==========================================
+
+  - changeSet:
+      id: 1788867900470-12
+      author: Vishal (generated)
+
+      changes:
+
+        - addForeignKeyConstraint:
+            baseColumnNames: patient_id
+            baseTableName: doctor_patient
+            constraintName: FKjda75ix2tcxtuemg6v1n0f453
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: patients
+            validate: true
+
+
+  # ==========================================
+  # EXISTING DOCTOR SOFT DELETE
+  # ==========================================
+
+  - include:
+      file: db/changelog/changes/004-add-doctor-soft-delete.yaml
+
+
+  # ==========================================
+  # EXISTING PATIENT SOFT DELETE
+  # ==========================================
+
+  - include:
+      file: db/changelog/sql/005-add-patient-soft-delete.sql

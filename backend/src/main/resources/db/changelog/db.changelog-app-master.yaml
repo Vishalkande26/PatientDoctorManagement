@@ -1,0 +1,16 @@
+databaseChangeLog:
+
+  # ==========================================
+  # EXISTING APPLICATION DATABASE CHANGELOG
+  # ==========================================
+
+  - include:
+      file: db/changelog/db.changelog-master.yaml
+
+
+  # ==========================================
+  # FILE MANAGEMENT CHANGELOG
+  # ==========================================
+
+  - include:
+      file: db/changelog/file-management.yaml
