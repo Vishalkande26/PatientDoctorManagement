@@ -54,7 +54,8 @@ public class SecurityConfig {
             AuthenticationConfiguration configuration)
             throws Exception {
 
-        return configuration.getAuthenticationManager();
+        return configuration
+                .getAuthenticationManager();
     }
 
     @Bean
@@ -64,6 +65,7 @@ public class SecurityConfig {
             throws Exception {
 
         http
+
             .csrf(csrf ->
                     csrf.disable()
             )
@@ -82,129 +84,204 @@ public class SecurityConfig {
 
             .authorizeHttpRequests(auth -> auth
 
+                /*
+                 * OPTIONS
+                 */
                 .requestMatchers(
                         HttpMethod.OPTIONS,
                         "/**"
                 ).permitAll()
 
+                /*
+                 * SWAGGER
+                 */
                 .requestMatchers(
                         "/swagger-ui/**",
                         "/swagger-ui.html",
                         "/v3/api-docs/**"
                 ).permitAll()
 
+                /*
+                 * AUTH
+                 */
                 .requestMatchers(
                         "/api/auth/**"
                 ).permitAll()
 
-                // USER CRUD
+                /*
+                 * USERS
+                 */
                 .requestMatchers(
                         "/api/users/**"
-                ).hasRole("ADMIN")
+                ).hasAuthority(
+                        "ROLE_ADMIN"
+                )
 
-                // DOCTOR
+                /*
+                 * DOCTORS - GET
+                 */
                 .requestMatchers(
                         HttpMethod.GET,
                         "/api/doctors/**"
-                ).hasAnyRole(
-                        "PATIENT",
-                        "DOCTOR",
-                        "ADMIN"
+                ).hasAnyAuthority(
+                        "ROLE_PATIENT",
+                        "ROLE_DOCTOR",
+                        "ROLE_ADMIN"
                 )
 
+                /*
+                 * DOCTORS - CREATE
+                 */
                 .requestMatchers(
                         HttpMethod.POST,
                         "/api/doctors/**"
-                ).hasRole("ADMIN")
+                ).hasAuthority(
+                        "ROLE_ADMIN"
+                )
 
+                /*
+                 * DOCTORS - UPDATE
+                 */
                 .requestMatchers(
                         HttpMethod.PUT,
                         "/api/doctors/**"
-                ).hasRole("ADMIN")
+                ).hasAuthority(
+                        "ROLE_ADMIN"
+                )
 
+                /*
+                 * DOCTORS - DELETE
+                 */
                 .requestMatchers(
                         HttpMethod.DELETE,
                         "/api/doctors/**"
-                ).hasRole("ADMIN")
+                ).hasAuthority(
+                        "ROLE_ADMIN"
+                )
 
-                // PATIENT
+                /*
+                 * PATIENTS - GET
+                 */
                 .requestMatchers(
                         HttpMethod.GET,
                         "/api/patients/**"
-                ).hasAnyRole(
-                        "DOCTOR",
-                        "ADMIN"
+                ).hasAnyAuthority(
+                        "ROLE_DOCTOR",
+                        "ROLE_ADMIN"
                 )
 
+                /*
+                 * PATIENTS - CREATE
+                 */
                 .requestMatchers(
                         HttpMethod.POST,
                         "/api/patients/**"
-                ).hasAnyRole(
-                        "PATIENT",
-                        "ADMIN"
+                ).hasAnyAuthority(
+                        "ROLE_PATIENT",
+                        "ROLE_ADMIN"
                 )
 
+                /*
+                 * PATIENTS - UPDATE
+                 */
                 .requestMatchers(
                         HttpMethod.PUT,
                         "/api/patients/**"
-                ).hasRole("ADMIN")
+                ).hasAuthority(
+                        "ROLE_ADMIN"
+                )
 
+                /*
+                 * PATIENTS - DELETE
+                 */
                 .requestMatchers(
                         HttpMethod.DELETE,
                         "/api/patients/**"
-                ).hasRole("ADMIN")
+                ).hasAuthority(
+                        "ROLE_ADMIN"
+                )
 
-                // APPOINTMENT
+                /*
+                 * =====================================
+                 * APPOINTMENTS
+                 * =====================================
+                 */
+
+                /*
+                 * VIEW APPOINTMENTS
+                 */
                 .requestMatchers(
                         HttpMethod.GET,
                         "/api/appointments/**"
-                ).hasAnyRole(
-                        "PATIENT",
-                        "DOCTOR",
-                        "ADMIN"
+                ).hasAnyAuthority(
+                        "ROLE_PATIENT",
+                        "ROLE_DOCTOR",
+                        "ROLE_ADMIN"
                 )
 
+                /*
+                 * CREATE APPOINTMENT
+                 *
+                 * PATIENT IS ALLOWED
+                 */
                 .requestMatchers(
                         HttpMethod.POST,
                         "/api/appointments/**"
-                ).hasAnyRole(
-                        "PATIENT",
-                        "ADMIN"
+                ).hasAnyAuthority(
+                        "ROLE_PATIENT",
+                        "ROLE_ADMIN"
                 )
 
+                /*
+                 * UPDATE APPOINTMENT
+                 */
                 .requestMatchers(
                         HttpMethod.PUT,
                         "/api/appointments/**"
-                ).hasAnyRole(
-                        "DOCTOR",
-                        "ADMIN"
+                ).hasAnyAuthority(
+                        "ROLE_DOCTOR",
+                        "ROLE_ADMIN"
+                )
+
+                /*
+                 * DELETE APPOINTMENT
+                 */
+                .requestMatchers(
+                        HttpMethod.DELETE,
+                        "/api/appointments/**"
+                ).hasAuthority(
+                        "ROLE_ADMIN"
+                )
+
+                /*
+                 * DOCTOR-PATIENT
+                 */
+                .requestMatchers(
+                        HttpMethod.POST,
+                        "/api/doctor-patient/**"
+                ).hasAuthority(
+                        "ROLE_ADMIN"
                 )
 
                 .requestMatchers(
                         HttpMethod.DELETE,
-                        "/api/appointments/**"
-                ).hasRole("ADMIN")
-
-                // DOCTOR-PATIENT MANY TO MANY
-                .requestMatchers(
-                        HttpMethod.POST,
                         "/api/doctor-patient/**"
-                ).hasRole("ADMIN")
-
-                .requestMatchers(
-                        HttpMethod.DELETE,
-                        "/api/doctor-patient/**"
-                ).hasRole("ADMIN")
+                ).hasAuthority(
+                        "ROLE_ADMIN"
+                )
 
                 .requestMatchers(
                         HttpMethod.GET,
                         "/api/doctor-patient/**"
-                ).hasAnyRole(
-                        "PATIENT",
-                        "DOCTOR",
-                        "ADMIN"
+                ).hasAnyAuthority(
+                        "ROLE_PATIENT",
+                        "ROLE_DOCTOR",
+                        "ROLE_ADMIN"
                 )
 
+                /*
+                 * EVERYTHING ELSE
+                 */
                 .anyRequest()
                 .authenticated()
             )

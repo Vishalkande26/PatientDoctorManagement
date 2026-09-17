@@ -1,11 +1,13 @@
 package com.patientmanagement.security;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 import javax.crypto.SecretKey;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.patientmanagement.entity.User;
@@ -20,16 +22,24 @@ public class JwtService {
     private static final Logger logger =
             LoggerFactory.getLogger(JwtService.class);
 
-    private final SecretKey secretKey = Keys.hmacShaKeyFor(
-        "MyPatientManagementSystemSecretKey123456789"
-            .getBytes()
-    );
+    private static final String SECRET_KEY =
+            "MyPatientManagementSystemSecretKey123456789";
 
-    private final long jwtExpiration = 1000 * 60 * 60;
+    private final SecretKey secretKey =
+            Keys.hmacShaKeyFor(
+                    SECRET_KEY.getBytes(
+                            StandardCharsets.UTF_8
+                    )
+            );
 
-    // ==============================
-    // GENERATE JWT
-    // ==============================
+    private final long jwtExpiration =
+            1000L * 60 * 60;
+
+    /*
+     * ==========================================
+     * GENERATE TOKEN
+     * ==========================================
+     */
 
     public String generateToken(User user) {
 
@@ -40,51 +50,92 @@ public class JwtService {
         );
 
         return Jwts.builder()
-                .subject(user.getEmail())
-                .claim("role", user.getRole().name())
-                .claim("username", user.getUsername())
-                .issuedAt(new Date())
-                .expiration(
-                    new Date(
-                        System.currentTimeMillis()
-                            + jwtExpiration
-                    )
+                .subject(
+                        user.getEmail()
                 )
-                .signWith(secretKey)
+                .claim(
+                        "role",
+                        user.getRole().name()
+                )
+                .claim(
+                        "username",
+                        user.getUsername()
+                )
+                .issuedAt(
+                        new Date()
+                )
+                .expiration(
+                        new Date(
+                                System.currentTimeMillis()
+                                        + jwtExpiration
+                        )
+                )
+                .signWith(
+                        secretKey
+                )
                 .compact();
     }
 
-    // ==============================
-    // EXTRACT EMAIL
-    // ==============================
+    /*
+     * ==========================================
+     * EXTRACT USERNAME / EMAIL
+     * ==========================================
+     */
 
-    public String extractEmail(String token) {
+    public String extractUsername(
+            String token) {
 
         return extractAllClaims(token)
                 .getSubject();
     }
 
-    // ==============================
-    // EXTRACT ROLE
-    // ==============================
+    /*
+     * ==========================================
+     * EXTRACT EMAIL
+     * ==========================================
+     */
 
-    public String extractRole(String token) {
+    public String extractEmail(
+            String token) {
 
-        return extractAllClaims(token)
-                .get("role", String.class);
+        return extractUsername(token);
     }
 
-    // ==============================
-    // VALIDATE JWT
-    // ==============================
+    /*
+     * ==========================================
+     * EXTRACT ROLE
+     * ==========================================
+     */
 
-    public boolean isTokenValid(String token) {
+    public String extractRole(
+            String token) {
+
+        return extractAllClaims(token)
+                .get(
+                        "role",
+                        String.class
+                );
+    }
+
+    /*
+     * ==========================================
+     * VALIDATE TOKEN
+     * ==========================================
+     */
+
+    public boolean isTokenValid(
+            String token,
+            UserDetails userDetails) {
 
         try {
 
-            extractAllClaims(token);
+            String username =
+                    extractUsername(token);
 
-            return true;
+            return username.equals(
+                    userDetails.getUsername()
+            )
+                    && !isTokenExpired(token);
 
         } catch (Exception e) {
 
@@ -97,14 +148,37 @@ public class JwtService {
         }
     }
 
-    // ==============================
-    // EXTRACT ALL CLAIMS
-    // ==============================
+    /*
+     * ==========================================
+     * CHECK EXPIRATION
+     * ==========================================
+     */
 
-    private Claims extractAllClaims(String token) {
+    private boolean isTokenExpired(
+            String token) {
+
+        Date expiration =
+                extractAllClaims(token)
+                        .getExpiration();
+
+        return expiration.before(
+                new Date()
+        );
+    }
+
+    /*
+     * ==========================================
+     * GET CLAIMS
+     * ==========================================
+     */
+
+    private Claims extractAllClaims(
+            String token) {
 
         return Jwts.parser()
-                .verifyWith(secretKey)
+                .verifyWith(
+                        secretKey
+                )
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();

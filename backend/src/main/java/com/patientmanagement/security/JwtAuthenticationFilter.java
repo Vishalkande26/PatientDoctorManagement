@@ -2,12 +2,10 @@ package com.patientmanagement.security;
 
 import java.io.IOException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -21,18 +19,19 @@ import jakarta.servlet.http.HttpServletResponse;
 public class JwtAuthenticationFilter
         extends OncePerRequestFilter {
 
-    private static final Logger logger =
-            LoggerFactory.getLogger(JwtAuthenticationFilter.class);
-
     private final JwtService jwtService;
-    private final CustomUserDetailsService userDetailsService;
+
+    private final UserDetailsService userDetailsService;
 
     public JwtAuthenticationFilter(
             JwtService jwtService,
-            CustomUserDetailsService userDetailsService) {
+            UserDetailsService userDetailsService) {
 
-        this.jwtService = jwtService;
-        this.userDetailsService = userDetailsService;
+        this.jwtService =
+                jwtService;
+
+        this.userDetailsService =
+                userDetailsService;
     }
 
     @Override
@@ -42,107 +41,143 @@ public class JwtAuthenticationFilter
             FilterChain filterChain)
             throws ServletException, IOException {
 
-        String path = request.getServletPath();
-
-        // ==============================
-        // PUBLIC ENDPOINTS
-        // ==============================
-
-        if (path.equals("/api/auth/login")
-                || path.equals("/api/auth/register")
-                || path.equals("/swagger-ui.html")
-                || path.startsWith("/swagger-ui/")
-                || path.equals("/v3/api-docs")
-                || path.startsWith("/v3/api-docs/")) {
-
-            filterChain.doFilter(request, response);
-            return;
-        }
-
-        // ==============================
-        // GET AUTHORIZATION HEADER
-        // ==============================
-
         String authHeader =
                 request.getHeader("Authorization");
 
-        if (authHeader == null
-                || !authHeader.startsWith("Bearer ")) {
+        /*
+         * ==========================================
+         * NO AUTHORIZATION HEADER
+         * ==========================================
+         */
 
-            logger.debug(
-                    "No Bearer token provided for request: {} {}",
-                    request.getMethod(),
-                    path
+        if (authHeader == null ||
+                !authHeader.startsWith("Bearer ")) {
+
+            filterChain.doFilter(
+                    request,
+                    response
             );
 
-            filterChain.doFilter(request, response);
             return;
         }
 
-        String token = authHeader.substring(7);
+        /*
+         * ==========================================
+         * GET JWT
+         * ==========================================
+         */
+
+        String jwt =
+                authHeader.substring(7);
 
         try {
 
-            // Extract email from JWT
-            String email =
-                    jwtService.extractEmail(token);
+            /*
+             * ==========================================
+             * EXTRACT EMAIL
+             * ==========================================
+             */
 
-            if (email != null
-                    && SecurityContextHolder
-                        .getContext()
-                        .getAuthentication() == null) {
+            String email =
+                    jwtService.extractUsername(jwt);
+
+            /*
+             * ==========================================
+             * CHECK AUTHENTICATION
+             * ==========================================
+             */
+
+            if (email != null &&
+                    SecurityContextHolder
+                            .getContext()
+                            .getAuthentication() == null) {
+
+                /*
+                 * ==========================================
+                 * LOAD USER
+                 * ==========================================
+                 */
 
                 UserDetails userDetails =
                         userDetailsService
-                            .loadUserByUsername(email);
+                                .loadUserByUsername(
+                                        email
+                                );
 
-                // Validate JWT
-                if (jwtService.isTokenValid(token)) {
+                /*
+                 * ==========================================
+                 * VALIDATE JWT
+                 * ==========================================
+                 */
+
+                if (jwtService.isTokenValid(
+                        jwt,
+                        userDetails
+                )) {
+
+                    /*
+                     * ==========================================
+                     * CREATE AUTHENTICATION
+                     * ==========================================
+                     */
 
                     UsernamePasswordAuthenticationToken
                             authentication =
                             new UsernamePasswordAuthenticationToken(
                                     userDetails,
                                     null,
-                                    userDetails.getAuthorities()
+                                    userDetails
+                                            .getAuthorities()
                             );
 
                     authentication.setDetails(
                             new WebAuthenticationDetailsSource()
-                                .buildDetails(request)
+                                    .buildDetails(request)
                     );
+
+                    /*
+                     * ==========================================
+                     * STORE AUTHENTICATION
+                     * ==========================================
+                     */
 
                     SecurityContextHolder
-                        .getContext()
-                        .setAuthentication(
-                            authentication
-                        );
+                            .getContext()
+                            .setAuthentication(
+                                    authentication
+                            );
 
-                    logger.info(
-                            "JWT authentication successful for user: {}",
-                            email
+                    System.out.println(
+                            "JWT authentication successful"
                     );
 
-                } else {
+                    System.out.println(
+                            "Authenticated user: "
+                                    + email
+                    );
 
-                    logger.warn(
-                            "Invalid JWT token for request: {} {}",
-                            request.getMethod(),
-                            path
+                    System.out.println(
+                            "Authorities: "
+                                    + userDetails
+                                            .getAuthorities()
                     );
                 }
             }
 
         } catch (Exception e) {
 
-            logger.warn(
-                    "JWT authentication failed for request: {} {} - {}",
-                    request.getMethod(),
-                    path,
-                    e.getMessage()
+            SecurityContextHolder
+                    .clearContext();
+
+            System.out.println(
+                    "JWT authentication failed: "
+                            + e.getMessage()
             );
         }
 
-        filterChain.doFilter(request, response);
+        filterChain.doFilter(
+                request,
+                response
+        );
     }
 }

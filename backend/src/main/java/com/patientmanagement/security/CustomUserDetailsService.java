@@ -1,5 +1,6 @@
 package com.patientmanagement.security;
 
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -17,24 +18,67 @@ public class CustomUserDetailsService
     public CustomUserDetailsService(
             UserRepository userRepository) {
 
-        this.userRepository = userRepository;
+        this.userRepository =
+                userRepository;
     }
 
     @Override
-    public UserDetails loadUserByUsername(String email)
+    public UserDetails loadUserByUsername(
+            String email)
             throws UsernameNotFoundException {
 
-        User user = userRepository.findByEmail(email)
-                .orElseThrow(() ->
-                    new UsernameNotFoundException(
-                        "User not found with email: " + email
-                    )
-                );
+        System.out.println(
+                "Loading user: "
+                        + email
+        );
+
+        User user =
+                userRepository
+                        .findByEmail(email)
+                        .orElseThrow(() ->
+                                new UsernameNotFoundException(
+                                        "User not found: "
+                                                + email
+                                )
+                        );
+
+        /*
+         * PATIENT
+         * becomes
+         * ROLE_PATIENT
+         */
+
+        String authority =
+                "ROLE_" +
+                        user.getRole().name();
+
+        System.out.println(
+                "User: "
+                        + user.getEmail()
+        );
+
+        System.out.println(
+                "Role: "
+                        + user.getRole()
+        );
+
+        System.out.println(
+                "Authority: "
+                        + authority
+        );
 
         return org.springframework.security.core.userdetails.User
-                .withUsername(user.getEmail())
-                .password(user.getPassword())
-                .roles(user.getRole().name())
+                .withUsername(
+                        user.getEmail()
+                )
+                .password(
+                        user.getPassword()
+                )
+                .authorities(
+                        new SimpleGrantedAuthority(
+                                authority
+                        )
+                )
                 .build();
     }
 }

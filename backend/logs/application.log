@@ -1469,3 +1469,428 @@ Caused by: org.springframework.data.core.PropertyReferenceException: No property
 2026-09-11 16:51:43 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-09-11 16:51:43 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2026-09-11 16:51:43 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-09-11 17:32:09 [restartedMain] INFO  com.patientmanagement.BackendApplication - Starting BackendApplication using Java 25.0.3 with PID 19916 (C:\Users\Vishal\Desktop\PatientDoctorManagement\backend\target\classes started by Vishal in C:\Users\Vishal\Desktop\PatientDoctorManagement\backend)
+2026-09-11 17:32:09 [restartedMain] INFO  com.patientmanagement.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-11 17:32:09 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-09-11 17:32:09 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-09-11 17:32:09 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 9.1.3.Final
+2026-09-11 17:32:10 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-11 17:32:10 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 62 ms. Found 4 JPA repository interfaces.
+2026-09-11 17:32:11 [restartedMain] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-09-11 17:32:11 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-09-11 17:32:11 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-09-11 17:32:11 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-09-11 17:32:11 [restartedMain] INFO  org.springframework.boot.web.context.servlet.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 2057 ms
+2026-09-11 17:32:11 [restartedMain] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-11 17:32:11 [restartedMain] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-09-11 17:32:11 [restartedMain] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-11 17:32:12 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-09-11 17:32:12 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 62e0506a-2bf3-4e69-b5c0-486a81eecb0c
+2026-09-11 17:32:12 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-09-11 17:32:12 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-09-11 17:32:12 [restartedMain] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:sqlserver://localhost:1433;concatNullYieldsNull=ON;quotedIdentifier=ON;connectRetryInterval=10;connectRetryCount=1;maxResultBuffer=-1;sendTemporalDataTypesAsStringForBulkCopy=true;delayLoadingLobs=true;useFmtOnly=false;vectorTypeSupport=v1;cacheBulkCopyMetadata=false;bulkCopyForBatchInsertAllowEncryptedValueModifications=false;bulkCopyForBatchInsertTableLock=false;bulkCopyForBatchInsertKeepNulls=false;bulkCopyForBatchInsertKeepIdentity=false;bulkCopyForBatchInsertFireTriggers=false;bulkCopyForBatchInsertCheckConstraints=false;bulkCopyForBatchInsertBatchSize=0;useBulkCopyForBatchInsert=false;cancelQueryTimeout=-1;sslProtocol=TLS;calcBigDecimalPrecision=false;useDefaultJaasConfig=false;jaasConfigurationName=SQLJDBCDriver;statementPoolingCacheSize=0;serverPreparedStatementDiscardThreshold=10;enablePrepareOnFirstPreparedStatementCall=false;fips=false;socketTimeout=0;authentication=NotSpecified;authenticationScheme=nativeAuthentication;xopenStates=false;datetimeParameterType=datetime2;sendTimeAsDatetime=false;replication=false;trustStoreType=JKS;trustServerCertificate=true;TransparentNetworkIPResolution=true;iPAddressPreference=IPv4First;serverNameAsACE=false;sendStringParametersAsUnicode=true;selectMethod=direct;responseBuffering=adaptive;queryTimeout=-1;packetSize=8000;multiSubnetFailover=false;loginTimeout=30;lockTimeout=-1;lastUpdateCount=true;useDefaultGSSCredential=false;prepareMethod=prepexec;encrypt=true;disableStatementPooling=true;databaseName=PatientManagementDB;columnEncryptionSetting=Disabled;applicationName=Microsoft JDBC Driver for SQL Server;applicationIntent=readwrite;]
+	Database driver: Microsoft JDBC Driver 13.4 for SQL Server
+	Database dialect: SQLServerDialect
+	Database version: 17.0
+	Default catalog/schema: PatientManagementDB/dbo
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 128
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-11 17:32:14 [restartedMain] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-11 17:32:15 [restartedMain] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-11 17:32:15 [restartedMain] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-11 17:32:16 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-09-11 17:32:16 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-09-11 17:32:16 [restartedMain] WARN  org.springframework.boot.jpa.autoconfigure.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-11 17:32:17 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-09-11 17:32:17 [restartedMain] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-09-11 17:32:17 [restartedMain] INFO  com.patientmanagement.BackendApplication - Started BackendApplication in 8.946 seconds (process running for 10.029)
+2026-09-11 17:32:17 [restartedMain] WARN  org.springdoc.core.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-11 17:32:17 [restartedMain] WARN  org.springdoc.core.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-11 17:32:26 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-11 17:32:26 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-09-11 17:32:26 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2026-09-11 17:32:26 [http-nio-8080-exec-2] WARN  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication failed for request: GET /api/patients - JWT expired 354411 milliseconds ago at 2026-09-11T11:56:32.000Z. Current time: 2026-09-11T12:02:26.411Z. Allowed clock skew: 0 milliseconds.
+2026-09-11 17:32:31 [http-nio-8080-exec-3] WARN  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication failed for request: GET /api/doctors - JWT expired 359551 milliseconds ago at 2026-09-11T11:56:32.000Z. Current time: 2026-09-11T12:02:31.551Z. Allowed clock skew: 0 milliseconds.
+2026-09-11 17:33:04 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.AuthService - Login attempt received for email: admin@gmail.com
+2026-09-11 17:33:05 [http-nio-8080-exec-6] ERROR com.patientmanagement.exception.GlobalExceptionHandler - Unexpected error on /api/auth/login
+org.springframework.security.authentication.BadCredentialsException: Bad credentials
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.additionalAuthenticationChecks(DaoAuthenticationProvider.java:92)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.performPreCheck(AbstractUserDetailsAuthenticationProvider.java:198)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:159)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:183)
+	at com.patientmanagement.service.AuthService.login(AuthService.java:105)
+	at com.patientmanagement.controller.AuthController.login(AuthController.java:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:252)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:184)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:132)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:59)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$2(FilterChainProxy.java:235)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:376)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:132)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:86)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:181)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at com.patientmanagement.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:96)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:535)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:86)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:71)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:347)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:406)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:71)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1307)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:2036)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:74)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:949)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:483)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-09-11 17:33:05 [http-nio-8080-exec-6] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.security.authentication.BadCredentialsException: Bad credentials]
+2026-09-11 17:33:08 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.AuthService - Login attempt received for email: admin@gmail.com
+2026-09-11 17:33:08 [http-nio-8080-exec-7] ERROR com.patientmanagement.exception.GlobalExceptionHandler - Unexpected error on /api/auth/login
+org.springframework.security.authentication.BadCredentialsException: Bad credentials
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.additionalAuthenticationChecks(DaoAuthenticationProvider.java:92)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.performPreCheck(AbstractUserDetailsAuthenticationProvider.java:198)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:159)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:183)
+	at com.patientmanagement.service.AuthService.login(AuthService.java:105)
+	at com.patientmanagement.controller.AuthController.login(AuthController.java:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:252)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:184)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:132)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:59)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$2(FilterChainProxy.java:235)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:376)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:132)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:86)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:181)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at com.patientmanagement.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:96)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:535)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:86)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:71)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:347)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:406)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:71)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1307)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:2036)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:74)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:949)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:483)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-09-11 17:33:08 [http-nio-8080-exec-7] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.security.authentication.BadCredentialsException: Bad credentials]
+2026-09-11 17:33:33 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.AuthService - Login attempt received for email: admin@gmail.com
+2026-09-11 17:33:33 [http-nio-8080-exec-9] INFO  com.patientmanagement.security.JwtService - Generating JWT token for user: admin@gmail.com with role: ADMIN
+2026-09-11 17:33:33 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.AuthService - User logged in successfully with email: admin@gmail.com and role: ADMIN
+2026-09-11 17:33:46 [http-nio-8080-exec-1] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:33:46 [http-nio-8080-exec-1] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-11 17:33:46 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-11 17:33:46 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-11 17:34:48 [http-nio-8080-exec-3] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:34:48 [http-nio-8080-exec-3] INFO  com.patientmanagement.controller.DoctorController - POST /api/doctors - Creating doctor
+2026-09-11 17:34:48 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.DoctorService - Creating doctor with name: Dr Varma
+2026-09-11 17:34:48 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.DoctorService - Doctor created successfully with id: 27
+2026-09-11 17:36:44 [http-nio-8080-exec-7] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:36:44 [http-nio-8080-exec-7] INFO  com.patientmanagement.controller.DoctorController - PUT /api/doctors/-1789128288336 - Updating doctor
+2026-09-11 17:36:44 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.DoctorService - Updating doctor with id: -1789128288336
+2026-09-11 17:36:44 [http-nio-8080-exec-7] WARN  com.patientmanagement.service.DoctorService - Doctor not found for update with id: -1789128288336
+2026-09-11 17:36:44 [http-nio-8080-exec-7] WARN  com.patientmanagement.exception.GlobalExceptionHandler - Resource not found on /api/doctors/-1789128288336: Doctor not found with id: -1789128288336
+2026-09-11 17:36:44 [http-nio-8080-exec-7] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.patientmanagement.exception.ResourceNotFoundException: Doctor not found with id: -1789128288336]
+2026-09-11 17:36:47 [http-nio-8080-exec-8] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:36:47 [http-nio-8080-exec-8] INFO  com.patientmanagement.controller.DoctorController - PUT /api/doctors/-1789128288336 - Updating doctor
+2026-09-11 17:36:47 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.DoctorService - Updating doctor with id: -1789128288336
+2026-09-11 17:36:47 [http-nio-8080-exec-8] WARN  com.patientmanagement.service.DoctorService - Doctor not found for update with id: -1789128288336
+2026-09-11 17:36:47 [http-nio-8080-exec-8] WARN  com.patientmanagement.exception.GlobalExceptionHandler - Resource not found on /api/doctors/-1789128288336: Doctor not found with id: -1789128288336
+2026-09-11 17:36:47 [http-nio-8080-exec-8] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.patientmanagement.exception.ResourceNotFoundException: Doctor not found with id: -1789128288336]
+2026-09-11 17:36:50 [http-nio-8080-exec-10] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:36:50 [http-nio-8080-exec-10] INFO  com.patientmanagement.controller.DoctorController - PUT /api/doctors/-1789128288336 - Updating doctor
+2026-09-11 17:36:50 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.DoctorService - Updating doctor with id: -1789128288336
+2026-09-11 17:36:50 [http-nio-8080-exec-10] WARN  com.patientmanagement.service.DoctorService - Doctor not found for update with id: -1789128288336
+2026-09-11 17:36:50 [http-nio-8080-exec-10] WARN  com.patientmanagement.exception.GlobalExceptionHandler - Resource not found on /api/doctors/-1789128288336: Doctor not found with id: -1789128288336
+2026-09-11 17:36:50 [http-nio-8080-exec-10] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.patientmanagement.exception.ResourceNotFoundException: Doctor not found with id: -1789128288336]
+2026-09-11 17:36:58 [http-nio-8080-exec-2] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:36:58 [http-nio-8080-exec-2] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-11 17:36:58 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-11 17:36:58 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Found 5 active doctors
+2026-09-11 17:37:16 [http-nio-8080-exec-3] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:37:16 [http-nio-8080-exec-3] INFO  com.patientmanagement.controller.DoctorController - PUT /api/doctors/27 - Updating doctor
+2026-09-11 17:37:16 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.DoctorService - Updating doctor with id: 27
+2026-09-11 17:37:16 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.DoctorService - Doctor updated successfully with id: 27
+2026-09-11 17:37:34 [http-nio-8080-exec-6] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:37:34 [http-nio-8080-exec-6] INFO  com.patientmanagement.controller.DoctorController - DELETE /api/doctors/27 - Soft deleting doctor
+2026-09-11 17:37:34 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.DoctorService - Soft deleting doctor with id: 27
+2026-09-11 17:37:34 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.DoctorService - Doctor with id 27 was soft deleted successfully
+2026-09-11 17:38:10 [http-nio-8080-exec-8] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:38:10 [http-nio-8080-exec-8] INFO  com.patientmanagement.controller.DoctorController - DELETE /api/doctors/27 - Soft deleting doctor
+2026-09-11 17:38:10 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.DoctorService - Soft deleting doctor with id: 27
+2026-09-11 17:38:10 [http-nio-8080-exec-8] WARN  com.patientmanagement.service.DoctorService - Doctor not found for deletion with id: 27
+2026-09-11 17:38:10 [http-nio-8080-exec-8] WARN  com.patientmanagement.exception.GlobalExceptionHandler - Resource not found on /api/doctors/27: Doctor not found with id: 27
+2026-09-11 17:38:10 [http-nio-8080-exec-8] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.patientmanagement.exception.ResourceNotFoundException: Doctor not found with id: 27]
+2026-09-11 17:38:12 [http-nio-8080-exec-10] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:38:12 [http-nio-8080-exec-10] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-11 17:38:12 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-11 17:38:12 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-11 17:38:12 [http-nio-8080-exec-1] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:38:12 [http-nio-8080-exec-1] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-11 17:38:12 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-11 17:38:12 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-11 17:38:13 [http-nio-8080-exec-2] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:38:13 [http-nio-8080-exec-2] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-11 17:38:13 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-11 17:38:13 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-11 17:38:13 [http-nio-8080-exec-4] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:38:13 [http-nio-8080-exec-4] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-11 17:38:13 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-11 17:38:13 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-11 17:39:21 [http-nio-8080-exec-6] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:39:21 [http-nio-8080-exec-6] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-11 17:39:21 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-11 17:39:21 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-11 17:39:26 [http-nio-8080-exec-8] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:39:26 [http-nio-8080-exec-8] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-11 17:39:26 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-11 17:39:26 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.PatientService - Found 6 active patients
+2026-09-11 17:39:29 [http-nio-8080-exec-9] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:39:29 [http-nio-8080-exec-9] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-11 17:39:29 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-11 17:39:29 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.PatientService - Found 6 active patients
+2026-09-11 17:39:33 [http-nio-8080-exec-1] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:39:33 [http-nio-8080-exec-1] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-11 17:39:33 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-11 17:39:33 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-11 17:39:37 [http-nio-8080-exec-4] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:39:37 [http-nio-8080-exec-4] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-11 17:39:37 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-11 17:39:37 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.PatientService - Found 6 active patients
+2026-09-11 17:39:38 [http-nio-8080-exec-5] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:39:46 [http-nio-8080-exec-9] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:39:46 [http-nio-8080-exec-9] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-11 17:39:46 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-11 17:39:46 [http-nio-8080-exec-10] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:39:46 [http-nio-8080-exec-1] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:39:46 [http-nio-8080-exec-10] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-11 17:39:46 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-11 17:39:46 [http-nio-8080-exec-1] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
+2026-09-11 17:39:46 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
+2026-09-11 17:39:46 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.PatientService - Found 6 active patients
+2026-09-11 17:39:46 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-11 17:39:46 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.AppointmentService - Found 2 appointments
+2026-09-11 17:39:51 [http-nio-8080-exec-4] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:39:52 [http-nio-8080-exec-5] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:39:52 [http-nio-8080-exec-5] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-11 17:39:52 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-11 17:39:52 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.PatientService - Found 6 active patients
+2026-09-11 17:39:54 [http-nio-8080-exec-7] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:39:54 [http-nio-8080-exec-7] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-11 17:39:54 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-11 17:39:54 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-11 17:56:43 [http-nio-8080-exec-2] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:56:43 [http-nio-8080-exec-2] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-11 17:56:43 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-11 17:56:43 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-11 17:56:56 [http-nio-8080-exec-3] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:56:56 [http-nio-8080-exec-3] INFO  com.patientmanagement.controller.DoctorController - PUT /api/doctors/1 - Updating doctor
+2026-09-11 17:56:56 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.DoctorService - Updating doctor with id: 1
+2026-09-11 17:56:56 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.DoctorService - Doctor updated successfully with id: 1
+2026-09-11 17:57:54 [http-nio-8080-exec-6] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:57:54 [http-nio-8080-exec-6] INFO  com.patientmanagement.controller.DoctorController - POST /api/doctors - Creating doctor
+2026-09-11 17:57:54 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.DoctorService - Creating doctor with name: Dr Dhoni
+2026-09-11 17:57:54 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.DoctorService - Doctor created successfully with id: 28
+2026-09-11 17:58:00 [http-nio-8080-exec-8] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:58:00 [http-nio-8080-exec-8] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-11 17:58:00 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-11 17:58:00 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.DoctorService - Found 5 active doctors
+2026-09-11 17:58:14 [http-nio-8080-exec-10] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:58:14 [http-nio-8080-exec-10] INFO  com.patientmanagement.controller.DoctorController - PUT /api/doctors/28 - Updating doctor
+2026-09-11 17:58:14 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.DoctorService - Updating doctor with id: 28
+2026-09-11 17:58:14 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.DoctorService - Doctor updated successfully with id: 28
+2026-09-11 17:58:24 [http-nio-8080-exec-2] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:58:24 [http-nio-8080-exec-2] INFO  com.patientmanagement.controller.DoctorController - DELETE /api/doctors/28 - Soft deleting doctor
+2026-09-11 17:58:24 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Soft deleting doctor with id: 28
+2026-09-11 17:58:24 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Doctor with id 28 was soft deleted successfully
+2026-09-11 17:58:28 [http-nio-8080-exec-3] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:58:28 [http-nio-8080-exec-3] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-11 17:58:28 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-11 17:58:28 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-11 17:58:35 [http-nio-8080-exec-6] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:58:35 [http-nio-8080-exec-6] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-11 17:58:35 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-11 17:58:35 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.PatientService - Found 6 active patients
+2026-09-11 17:58:38 [http-nio-8080-exec-8] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:58:42 [http-nio-8080-exec-2] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:58:42 [http-nio-8080-exec-2] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-11 17:58:42 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-11 17:58:42 [http-nio-8080-exec-3] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:58:42 [http-nio-8080-exec-3] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-11 17:58:42 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-11 17:58:42 [http-nio-8080-exec-4] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 17:58:42 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.PatientService - Found 6 active patients
+2026-09-11 17:58:42 [http-nio-8080-exec-4] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
+2026-09-11 17:58:42 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
+2026-09-11 17:58:42 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-11 17:58:42 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.AppointmentService - Found 2 appointments
+2026-09-11 18:06:33 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m50s970ms936µs400ns).
+2026-09-11 18:07:01 [http-nio-8080-exec-9] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 18:07:01 [http-nio-8080-exec-9] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-11 18:07:01 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-11 18:07:01 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-11 18:28:11 [http-nio-8080-exec-2] INFO  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication successful for user: admin@gmail.com
+2026-09-11 18:28:11 [http-nio-8080-exec-2] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-11 18:28:11 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-11 18:28:11 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.PatientService - Found 6 active patients
+2026-09-11 18:38:11 [http-nio-8080-exec-5] WARN  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication failed for request: GET /api/patients - JWT expired 278306 milliseconds ago at 2026-09-11T13:03:33.000Z. Current time: 2026-09-11T13:08:11.306Z. Allowed clock skew: 0 milliseconds.
+2026-09-11 19:24:44 [http-nio-8080-exec-8] WARN  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication failed for request: GET /api/patients - JWT expired 3071940 milliseconds ago at 2026-09-11T13:03:33.000Z. Current time: 2026-09-11T13:54:44.940Z. Allowed clock skew: 0 milliseconds.
+2026-09-11 19:25:02 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12m48s445ms588µs500ns).
+2026-09-11 19:42:50 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m18s400ms313µs600ns).
+2026-09-11 19:42:51 [http-nio-8080-exec-10] WARN  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication failed for request: GET /api/patients - JWT expired 4158492 milliseconds ago at 2026-09-11T13:03:33.000Z. Current time: 2026-09-11T14:12:51.492Z. Allowed clock skew: 0 milliseconds.
+2026-09-11 19:53:09 [http-nio-8080-exec-4] WARN  com.patientmanagement.security.JwtAuthenticationFilter - JWT authentication failed for request: GET /api/patients - JWT expired 4776175 milliseconds ago at 2026-09-11T13:03:33.000Z. Current time: 2026-09-11T14:23:09.175Z. Allowed clock skew: 0 milliseconds.
+2026-09-11 19:53:20 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-11 19:53:20 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-09-11 19:53:20 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-11 19:53:20 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-09-11 19:53:20 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

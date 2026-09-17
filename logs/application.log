@@ -1,99 +1,228 @@
-2026-09-11 00:13:16 [http-nio-8080-exec-9] WARN  com.patientmanagement.exception.GlobalExceptionHandler - Conflict on /api/users: Email already registered
-2026-09-11 00:13:16 [http-nio-8080-exec-9] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.patientmanagement.exception.ConflictException: Email already registered]
-2026-09-11 00:13:26 [http-nio-8080-exec-5] WARN  com.patientmanagement.exception.GlobalExceptionHandler - Conflict on /api/users: Email already registered
-2026-09-11 00:13:26 [http-nio-8080-exec-5] WARN  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.patientmanagement.exception.ConflictException: Email already registered]
-2026-09-11 00:14:34 [http-nio-8080-exec-1] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching all patients
-2026-09-11 00:14:34 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.PatientService - Fetching all patients
-2026-09-11 00:14:34 [http-nio-8080-exec-4] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
-2026-09-11 00:14:34 [http-nio-8080-exec-5] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
-2026-09-11 00:14:34 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
-2026-09-11 00:14:34 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
-2026-09-11 00:14:34 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
-2026-09-11 00:14:34 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.PatientService - Found 7 patients
-2026-09-11 00:14:34 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.AppointmentService - Found 2 appointments
-2026-09-11 00:40:46 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.AuthService - Login attempt received for email: admin@gmail.com
-2026-09-11 00:40:46 [http-nio-8080-exec-10] INFO  com.patientmanagement.security.JwtService - Generating JWT token for user: admin@gmail.com with role: ADMIN
-2026-09-11 00:40:46 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.AuthService - User logged in successfully with email: admin@gmail.com and role: ADMIN
-2026-09-11 00:40:46 [http-nio-8080-exec-5] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
-2026-09-11 00:40:46 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
-2026-09-11 00:40:46 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
-2026-09-11 00:40:46 [http-nio-8080-exec-7] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
-2026-09-11 00:40:46 [http-nio-8080-exec-9] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching all patients
-2026-09-11 00:40:46 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
-2026-09-11 00:40:46 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.PatientService - Fetching all patients
-2026-09-11 00:40:46 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.PatientService - Found 7 patients
-2026-09-11 00:40:46 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.AppointmentService - Found 2 appointments
-2026-09-11 00:40:53 [http-nio-8080-exec-10] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
-2026-09-11 00:40:53 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
-2026-09-11 00:40:53 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
-2026-09-11 00:40:55 [http-nio-8080-exec-6] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
-2026-09-11 00:40:55 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
-2026-09-11 00:40:55 [http-nio-8080-exec-5] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching all patients
-2026-09-11 00:40:55 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.PatientService - Fetching all patients
-2026-09-11 00:40:55 [http-nio-8080-exec-8] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
-2026-09-11 00:40:55 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
-2026-09-11 00:40:55 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
-2026-09-11 00:40:55 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.PatientService - Found 7 patients
-2026-09-11 00:40:55 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.AppointmentService - Found 2 appointments
-2026-09-11 00:42:32 [http-nio-8080-exec-2] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
-2026-09-11 00:42:32 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
-2026-09-11 00:42:32 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
-2026-09-11 00:42:44 [http-nio-8080-exec-9] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching all patients
-2026-09-11 00:42:44 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.PatientService - Fetching all patients
-2026-09-11 00:42:44 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.PatientService - Found 7 patients
-2026-09-11 00:43:00 [http-nio-8080-exec-3] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching all patients
-2026-09-11 00:43:00 [http-nio-8080-exec-4] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
-2026-09-11 00:43:00 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.PatientService - Fetching all patients
-2026-09-11 00:43:00 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
-2026-09-11 00:43:00 [http-nio-8080-exec-2] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
-2026-09-11 00:43:00 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
-2026-09-11 00:43:00 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.PatientService - Found 7 patients
-2026-09-11 00:43:00 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
-2026-09-11 00:43:00 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.AppointmentService - Found 2 appointments
-2026-09-11 00:43:11 [http-nio-8080-exec-1] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
-2026-09-11 00:43:11 [http-nio-8080-exec-10] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
-2026-09-11 00:43:11 [http-nio-8080-exec-7] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching all patients
-2026-09-11 00:43:11 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
-2026-09-11 00:43:11 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
-2026-09-11 00:43:11 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.PatientService - Fetching all patients
-2026-09-11 00:43:11 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
-2026-09-11 00:43:11 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.PatientService - Found 7 patients
-2026-09-11 00:43:11 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.AppointmentService - Found 2 appointments
-2026-09-11 00:43:42 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.AuthService - Login attempt received for email: tanmay@gmail.com
-2026-09-11 00:43:42 [http-nio-8080-exec-2] INFO  com.patientmanagement.security.JwtService - Generating JWT token for user: tanmay@gmail.com with role: PATIENT
-2026-09-11 00:43:42 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.AuthService - User logged in successfully with email: tanmay@gmail.com and role: PATIENT
-2026-09-11 00:43:56 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.AuthService - Login attempt received for email: rohit@gmail.com
-2026-09-11 00:43:56 [http-nio-8080-exec-9] INFO  com.patientmanagement.security.JwtService - Generating JWT token for user: rohit@gmail.com with role: DOCTOR
-2026-09-11 00:43:56 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.AuthService - User logged in successfully with email: rohit@gmail.com and role: DOCTOR
-2026-09-11 00:44:10 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.AuthService - Login attempt received for email: admin@gmail.com
-2026-09-11 00:44:10 [http-nio-8080-exec-8] INFO  com.patientmanagement.security.JwtService - Generating JWT token for user: admin@gmail.com with role: ADMIN
-2026-09-11 00:44:10 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.AuthService - User logged in successfully with email: admin@gmail.com and role: ADMIN
-2026-09-11 00:44:10 [http-nio-8080-exec-3] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching all patients
-2026-09-11 00:44:10 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.PatientService - Fetching all patients
-2026-09-11 00:44:10 [http-nio-8080-exec-6] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
-2026-09-11 00:44:10 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
-2026-09-11 00:44:10 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.PatientService - Found 7 patients
-2026-09-11 00:44:10 [http-nio-8080-exec-2] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
-2026-09-11 00:44:10 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
-2026-09-11 00:44:10 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
-2026-09-11 00:44:10 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.AppointmentService - Found 2 appointments
-2026-09-11 00:44:14 [http-nio-8080-exec-5] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
-2026-09-11 00:44:14 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
-2026-09-11 00:44:14 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
-2026-09-11 00:44:15 [http-nio-8080-exec-8] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching all patients
-2026-09-11 00:44:15 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.PatientService - Fetching all patients
-2026-09-11 00:44:15 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.PatientService - Found 7 patients
-2026-09-11 00:44:16 [http-nio-8080-exec-3] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching all patients
-2026-09-11 00:44:16 [http-nio-8080-exec-6] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
-2026-09-11 00:44:16 [http-nio-8080-exec-2] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
-2026-09-11 00:44:16 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.PatientService - Fetching all patients
-2026-09-11 00:44:16 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
-2026-09-11 00:44:16 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
-2026-09-11 00:44:16 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
-2026-09-11 00:44:16 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.PatientService - Found 7 patients
-2026-09-11 00:44:16 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.AppointmentService - Found 2 appointments
-2026-09-11 00:45:05 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-09-11 00:45:05 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-09-11 00:45:05 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-09-11 00:45:05 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-09-11 00:45:05 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-09-17 10:27:22 [restartedMain] INFO  com.patientmanagement.BackendApplication - Starting BackendApplication using Java 21.0.12 with PID 14996 (C:\Users\Vishal\Desktop\PatientDoctorManagement\backend\target\classes started by Vishal in C:\Users\Vishal\Desktop\PatientDoctorManagement)
+2026-09-17 10:27:22 [restartedMain] INFO  com.patientmanagement.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-17 10:27:22 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-09-17 10:27:22 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-09-17 10:27:23 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 9.1.3.Final
+2026-09-17 10:27:25 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-17 10:27:25 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 162 ms. Found 4 JPA repository interfaces.
+2026-09-17 10:27:28 [restartedMain] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-09-17 10:27:28 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-09-17 10:27:28 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-09-17 10:27:28 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-09-17 10:27:28 [restartedMain] INFO  org.springframework.boot.web.context.servlet.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 5580 ms
+2026-09-17 10:27:29 [restartedMain] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-17 10:27:29 [restartedMain] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-09-17 10:27:30 [restartedMain] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-17 10:27:30 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-09-17 10:27:32 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: b5931954-d99b-45b6-818d-d779eb8363ec
+2026-09-17 10:27:32 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-09-17 10:27:32 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-09-17 10:27:32 [restartedMain] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:sqlserver://localhost:1433;concatNullYieldsNull=ON;quotedIdentifier=ON;connectRetryInterval=10;connectRetryCount=1;maxResultBuffer=-1;sendTemporalDataTypesAsStringForBulkCopy=true;delayLoadingLobs=true;useFmtOnly=false;vectorTypeSupport=v1;cacheBulkCopyMetadata=false;bulkCopyForBatchInsertAllowEncryptedValueModifications=false;bulkCopyForBatchInsertTableLock=false;bulkCopyForBatchInsertKeepNulls=false;bulkCopyForBatchInsertKeepIdentity=false;bulkCopyForBatchInsertFireTriggers=false;bulkCopyForBatchInsertCheckConstraints=false;bulkCopyForBatchInsertBatchSize=0;useBulkCopyForBatchInsert=false;cancelQueryTimeout=-1;sslProtocol=TLS;calcBigDecimalPrecision=false;useDefaultJaasConfig=false;jaasConfigurationName=SQLJDBCDriver;statementPoolingCacheSize=0;serverPreparedStatementDiscardThreshold=10;enablePrepareOnFirstPreparedStatementCall=false;fips=false;socketTimeout=0;authentication=NotSpecified;authenticationScheme=nativeAuthentication;xopenStates=false;datetimeParameterType=datetime2;sendTimeAsDatetime=false;replication=false;trustStoreType=JKS;trustServerCertificate=true;TransparentNetworkIPResolution=true;iPAddressPreference=IPv4First;serverNameAsACE=false;sendStringParametersAsUnicode=true;selectMethod=direct;responseBuffering=adaptive;queryTimeout=-1;packetSize=8000;multiSubnetFailover=false;loginTimeout=30;lockTimeout=-1;lastUpdateCount=true;useDefaultGSSCredential=false;prepareMethod=prepexec;encrypt=true;disableStatementPooling=true;databaseName=PatientManagementDB;columnEncryptionSetting=Disabled;applicationName=Microsoft JDBC Driver for SQL Server;applicationIntent=readwrite;]
+	Database driver: Microsoft JDBC Driver 13.4 for SQL Server
+	Database dialect: SQLServerDialect
+	Database version: 17.0
+	Default catalog/schema: PatientManagementDB/dbo
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 128
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-17 10:27:34 [restartedMain] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-17 10:27:35 [restartedMain] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-17 10:27:35 [restartedMain] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-17 10:27:36 [restartedMain] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-09-17 10:27:36 [restartedMain] WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-09-17 10:27:36 [restartedMain] WARN  org.springframework.boot.jpa.autoconfigure.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-17 10:27:37 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-09-17 10:27:38 [restartedMain] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-09-17 10:27:38 [restartedMain] INFO  com.patientmanagement.BackendApplication - Started BackendApplication in 16.664 seconds (process running for 18.351)
+2026-09-17 10:27:38 [restartedMain] WARN  org.springdoc.core.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-17 10:27:38 [restartedMain] WARN  org.springdoc.core.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-17 10:29:25 [http-nio-8080-exec-3] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-17 10:29:25 [http-nio-8080-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-09-17 10:29:25 [http-nio-8080-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-09-17 10:29:25 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.AuthService - Login attempt received for email: admin@gmail.com
+2026-09-17 10:29:26 [http-nio-8080-exec-4] INFO  com.patientmanagement.security.JwtService - Generating JWT token for user: admin@gmail.com with role: ADMIN
+2026-09-17 10:29:26 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.AuthService - User logged in successfully with email: admin@gmail.com and role: ADMIN
+2026-09-17 10:29:29 [http-nio-8080-exec-8] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-17 10:29:29 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-17 10:29:29 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.PatientService - Found 7 active patients
+2026-09-17 10:29:36 [http-nio-8080-exec-6] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 10:29:36 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 10:29:36 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 10:29:51 [http-nio-8080-exec-4] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-17 10:29:51 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-17 10:29:51 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.PatientService - Found 7 active patients
+2026-09-17 10:29:51 [http-nio-8080-exec-7] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 10:29:51 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 10:29:51 [http-nio-8080-exec-8] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
+2026-09-17 10:29:51 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
+2026-09-17 10:29:51 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 10:29:51 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.AppointmentService - Found 5 appointments
+2026-09-17 10:30:28 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.AuthService - Login attempt received for email: avdhut@gmail.com
+2026-09-17 10:30:28 [http-nio-8080-exec-10] INFO  com.patientmanagement.security.JwtService - Generating JWT token for user: avdhut@gmail.com with role: PATIENT
+2026-09-17 10:30:28 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.AuthService - Patient ID 16 found for user ID 6
+2026-09-17 10:30:28 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.AuthService - User logged in successfully with email: avdhut@gmail.com and role: PATIENT
+2026-09-17 10:30:32 [http-nio-8080-exec-3] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 10:30:32 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 10:30:32 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 10:30:37 [http-nio-8080-exec-7] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 10:30:37 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 10:30:37 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 10:31:15 [http-nio-8080-exec-2] INFO  com.patientmanagement.controller.AppointmentController - POST /api/appointments - Creating appointment
+2026-09-17 10:31:15 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.AppointmentService - Creating appointment for patient id: 16 and doctor id: 5
+2026-09-17 10:31:15 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.AppointmentService - Appointment created successfully with id: 9
+2026-09-17 10:31:15 [http-nio-8080-exec-5] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
+2026-09-17 10:31:15 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
+2026-09-17 10:31:15 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.AppointmentService - Found 6 appointments
+2026-09-17 10:31:41 [http-nio-8080-exec-9] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
+2026-09-17 10:31:41 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
+2026-09-17 10:31:41 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.AppointmentService - Found 6 appointments
+2026-09-17 10:31:53 [http-nio-8080-exec-1] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
+2026-09-17 10:31:53 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
+2026-09-17 10:31:53 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.AppointmentService - Found 6 appointments
+2026-09-17 10:39:48 [http-nio-8080-exec-7] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
+2026-09-17 10:39:48 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
+2026-09-17 10:39:48 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.AppointmentService - Found 6 appointments
+2026-09-17 10:46:08 [http-nio-8080-exec-5] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
+2026-09-17 10:46:08 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
+2026-09-17 10:46:08 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.AppointmentService - Found 6 appointments
+2026-09-17 10:46:15 [http-nio-8080-exec-9] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 10:46:15 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 10:46:15 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 10:46:22 [http-nio-8080-exec-1] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 10:46:22 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 10:46:22 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 10:46:35 [http-nio-8080-exec-4] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
+2026-09-17 10:46:35 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
+2026-09-17 10:46:35 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.AppointmentService - Found 6 appointments
+2026-09-17 10:49:35 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.AuthService - Login attempt received for email: admin@gmail.com
+2026-09-17 10:49:35 [http-nio-8080-exec-2] INFO  com.patientmanagement.security.JwtService - Generating JWT token for user: admin@gmail.com with role: ADMIN
+2026-09-17 10:49:35 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.AuthService - User logged in successfully with email: admin@gmail.com and role: ADMIN
+2026-09-17 10:53:32 [http-nio-8080-exec-1] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 10:53:32 [http-nio-8080-exec-4] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
+2026-09-17 10:53:32 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 10:53:32 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
+2026-09-17 10:53:32 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 10:53:32 [http-nio-8080-exec-10] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-17 10:53:32 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-17 10:53:32 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.PatientService - Found 7 active patients
+2026-09-17 10:53:32 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.AppointmentService - Found 6 appointments
+2026-09-17 10:53:48 [http-nio-8080-exec-8] INFO  com.patientmanagement.controller.AppointmentController - PUT /api/appointments/8 - Updating appointment
+2026-09-17 10:53:48 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.AppointmentService - Updating appointment with id: 8
+2026-09-17 10:53:48 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.AppointmentService - Appointment updated successfully with id: 8
+2026-09-17 10:54:15 [http-nio-8080-exec-9] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-17 10:54:15 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-17 10:54:15 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.PatientService - Found 7 active patients
+2026-09-17 10:54:18 [http-nio-8080-exec-1] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 10:54:18 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 10:54:18 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 10:58:23 [http-nio-8080-exec-2] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 10:58:23 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 10:58:23 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 10:58:24 [http-nio-8080-exec-6] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-17 10:58:24 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-17 10:58:24 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.PatientService - Found 7 active patients
+2026-09-17 10:58:26 [http-nio-8080-exec-1] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-17 10:58:26 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-17 10:58:26 [http-nio-8080-exec-10] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 10:58:26 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 10:58:26 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.PatientService - Found 7 active patients
+2026-09-17 10:58:26 [http-nio-8080-exec-7] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
+2026-09-17 10:58:26 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
+2026-09-17 10:58:26 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 10:58:26 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.AppointmentService - Found 6 appointments
+2026-09-17 10:58:45 [http-nio-8080-exec-6] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-17 10:58:45 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-17 10:58:45 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.PatientService - Found 7 active patients
+2026-09-17 10:58:51 [http-nio-8080-exec-3] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 10:58:51 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 10:58:51 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 11:02:39 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.AuthService - Login attempt received for email: rohit@gmail.com
+2026-09-17 11:02:40 [http-nio-8080-exec-8] INFO  com.patientmanagement.security.JwtService - Generating JWT token for user: rohit@gmail.com with role: DOCTOR
+2026-09-17 11:02:40 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.AuthService - User logged in successfully with email: rohit@gmail.com and role: DOCTOR
+2026-09-17 11:03:05 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.AuthService - Login attempt received for email: rohit@gmail.com
+2026-09-17 11:03:05 [http-nio-8080-exec-5] INFO  com.patientmanagement.security.JwtService - Generating JWT token for user: rohit@gmail.com with role: DOCTOR
+2026-09-17 11:03:05 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.AuthService - User logged in successfully with email: rohit@gmail.com and role: DOCTOR
+2026-09-17 11:03:22 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.AuthService - Login attempt received for email: rohit@gmail.com
+2026-09-17 11:03:22 [http-nio-8080-exec-9] INFO  com.patientmanagement.security.JwtService - Generating JWT token for user: rohit@gmail.com with role: DOCTOR
+2026-09-17 11:03:22 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.AuthService - User logged in successfully with email: rohit@gmail.com and role: DOCTOR
+2026-09-17 11:03:38 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.AuthService - Login attempt received for email: avdhut@gmail.com
+2026-09-17 11:03:38 [http-nio-8080-exec-4] INFO  com.patientmanagement.security.JwtService - Generating JWT token for user: avdhut@gmail.com with role: PATIENT
+2026-09-17 11:03:38 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.AuthService - Patient ID 16 found for user ID 6
+2026-09-17 11:03:38 [http-nio-8080-exec-4] INFO  com.patientmanagement.service.AuthService - User logged in successfully with email: avdhut@gmail.com and role: PATIENT
+2026-09-17 11:03:48 [http-nio-8080-exec-10] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 11:03:48 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 11:03:48 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 11:03:54 [http-nio-8080-exec-8] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
+2026-09-17 11:03:54 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
+2026-09-17 11:03:54 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.AppointmentService - Found 6 appointments
+2026-09-17 11:13:39 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m36s915ms490µs600ns).
+2026-09-17 11:18:27 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.AuthService - Login attempt received for email: admin@gmail.com
+2026-09-17 11:18:27 [http-nio-8080-exec-6] INFO  com.patientmanagement.security.JwtService - Generating JWT token for user: admin@gmail.com with role: ADMIN
+2026-09-17 11:18:27 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.AuthService - User logged in successfully with email: admin@gmail.com and role: ADMIN
+2026-09-17 11:18:34 [http-nio-8080-exec-3] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 11:18:34 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 11:18:34 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 11:18:38 [http-nio-8080-exec-1] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-17 11:18:38 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-17 11:18:38 [http-nio-8080-exec-1] INFO  com.patientmanagement.service.PatientService - Found 7 active patients
+2026-09-17 11:18:46 [http-nio-8080-exec-2] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-17 11:18:46 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-17 11:18:46 [http-nio-8080-exec-9] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 11:18:46 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 11:18:46 [http-nio-8080-exec-3] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
+2026-09-17 11:18:46 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
+2026-09-17 11:18:46 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.PatientService - Found 7 active patients
+2026-09-17 11:18:46 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 11:18:46 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.AppointmentService - Found 6 appointments
+2026-09-17 11:19:34 [http-nio-8080-exec-8] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-17 11:19:34 [http-nio-8080-exec-2] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
+2026-09-17 11:19:34 [http-nio-8080-exec-6] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 11:19:34 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-17 11:19:34 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
+2026-09-17 11:19:34 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 11:19:34 [http-nio-8080-exec-6] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 11:19:34 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.PatientService - Found 7 active patients
+2026-09-17 11:19:34 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.AppointmentService - Found 6 appointments
+2026-09-17 11:23:22 [http-nio-8080-exec-10] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-17 11:23:22 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-17 11:23:22 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.PatientService - Found 7 active patients
+2026-09-17 11:23:40 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.AuthService - Login attempt received for email: avdhut@gmail.com
+2026-09-17 11:23:40 [http-nio-8080-exec-5] INFO  com.patientmanagement.security.JwtService - Generating JWT token for user: avdhut@gmail.com with role: PATIENT
+2026-09-17 11:23:40 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.AuthService - Patient ID 16 found for user ID 6
+2026-09-17 11:23:40 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.AuthService - User logged in successfully with email: avdhut@gmail.com and role: PATIENT
+2026-09-17 11:23:45 [http-nio-8080-exec-8] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 11:23:45 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 11:23:45 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 11:23:49 [http-nio-8080-exec-2] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 11:23:49 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 11:23:49 [http-nio-8080-exec-2] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 11:23:57 [http-nio-8080-exec-9] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
+2026-09-17 11:23:57 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
+2026-09-17 11:23:57 [http-nio-8080-exec-9] INFO  com.patientmanagement.service.AppointmentService - Found 6 appointments
+2026-09-17 11:25:33 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.AuthService - Login attempt received for email: admin@gmail.com
+2026-09-17 11:25:33 [http-nio-8080-exec-10] INFO  com.patientmanagement.security.JwtService - Generating JWT token for user: admin@gmail.com with role: ADMIN
+2026-09-17 11:25:33 [http-nio-8080-exec-10] INFO  com.patientmanagement.service.AuthService - User logged in successfully with email: admin@gmail.com and role: ADMIN
+2026-09-17 11:26:03 [http-nio-8080-exec-5] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 11:26:03 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 11:26:03 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 11:26:05 [http-nio-8080-exec-8] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-17 11:26:05 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-17 11:26:05 [http-nio-8080-exec-8] INFO  com.patientmanagement.service.PatientService - Found 7 active patients
+2026-09-17 11:26:10 [http-nio-8080-exec-3] INFO  com.patientmanagement.controller.PatientController - GET /api/patients - Fetching active patients
+2026-09-17 11:26:10 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.PatientService - Fetching all active patients
+2026-09-17 11:26:10 [http-nio-8080-exec-7] INFO  com.patientmanagement.controller.DoctorController - GET /api/doctors - Fetching all active doctors
+2026-09-17 11:26:10 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.DoctorService - Fetching all active doctors
+2026-09-17 11:26:10 [http-nio-8080-exec-7] INFO  com.patientmanagement.service.DoctorService - Found 4 active doctors
+2026-09-17 11:26:10 [http-nio-8080-exec-3] INFO  com.patientmanagement.service.PatientService - Found 7 active patients
+2026-09-17 11:26:10 [http-nio-8080-exec-5] INFO  com.patientmanagement.controller.AppointmentController - GET /api/appointments - Fetching all appointments
+2026-09-17 11:26:10 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.AppointmentService - Fetching all appointments
+2026-09-17 11:26:10 [http-nio-8080-exec-5] INFO  com.patientmanagement.service.AppointmentService - Found 6 appointments
+2026-09-17 11:33:29 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-17 11:33:29 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-09-17 11:33:29 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-17 11:33:29 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-09-17 11:33:29 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
