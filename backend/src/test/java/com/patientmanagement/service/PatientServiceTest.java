@@ -36,6 +36,7 @@ class PatientServiceTest {
 
     @BeforeEach
     void setUp() {
+
         patient = new Patient();
 
         patient.setId(1L);
@@ -50,43 +51,57 @@ class PatientServiceTest {
     @Test
     void createPatient_ShouldReturnSavedPatient() {
 
-        when(patientRepository.save(patient)).thenReturn(patient);
+        when(patientRepository.save(patient))
+                .thenReturn(patient);
 
-        Patient result = patientService.createPatient(patient);
+        Patient result =
+                patientService.createPatient(patient);
 
         assertNotNull(result);
         assertEquals("Rahul", result.getName());
         assertEquals(30, result.getAge());
 
-        verify(patientRepository, times(1)).save(patient);
+        verify(
+                patientRepository,
+                times(1)
+        ).save(patient);
     }
 
     @Test
     void getPatientById_ShouldReturnPatient_WhenPatientExists() {
 
-        when(patientRepository.findById(1L))
-                .thenReturn(Optional.of(patient));
+        when(
+                patientRepository.findByIdAndDeletedFalse(1L)
+        ).thenReturn(Optional.of(patient));
 
-        Patient result = patientService.getPatientById(1L);
+        Patient result =
+                patientService.getPatientById(1L);
 
         assertNotNull(result);
         assertEquals(1L, result.getId());
         assertEquals("Rahul", result.getName());
 
-        verify(patientRepository, times(1)).findById(1L);
+        verify(
+                patientRepository,
+                times(1)
+        ).findByIdAndDeletedFalse(1L);
     }
 
     @Test
     void getPatientById_ShouldThrowException_WhenPatientDoesNotExist() {
 
-        when(patientRepository.findById(99L))
-                .thenReturn(Optional.empty());
+        when(
+                patientRepository.findByIdAndDeletedFalse(99L)
+        ).thenReturn(Optional.empty());
 
         assertThrows(
                 ResourceNotFoundException.class,
                 () -> patientService.getPatientById(99L)
         );
 
-        verify(patientRepository, times(1)).findById(99L);
+        verify(
+                patientRepository,
+                times(1)
+        ).findByIdAndDeletedFalse(99L);
     }
 }
